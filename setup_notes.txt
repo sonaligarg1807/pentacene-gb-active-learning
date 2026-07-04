@@ -1,0 +1,47 @@
+setup notes:
+- Creation of github repo:
+- created folder: pentacene-gb-active-learning --> open this folder in vscode --> click on source control --> initialise repository --> create one file --> README.md --> add it and commit it --> publish repository or gut push -u origin main
+- create folder structure inside this repo as follows:
+pentacene-gb-active-learning/
+├── README.md
+├── .gitignore
+├── environment.yml
+├── configs/
+│   └── al_config.yaml
+├── data/
+│   ├── seed_structures/
+│   └── labeled_data/
+├── src/
+│   ├── __init__.py
+│   ├── committee.py
+│   ├── md_runner.py
+│   ├── labeler.py
+│   ├── transfer_integral.py
+│   ├── acquisition.py
+│   └── al_loop.py
+├── scripts/
+│   ├── run_seed_generation.py
+│   └── run_al_cycle.py
+├── notebooks/
+│   └── analysis.ipynb
+└── output/
+    ├── models/
+    └── results/
+
+- then write .gitignore: This file is written to keep large model checkpoints and generated data out of git history ( can check track code, not big binary outputs )
+
+- write a minimal readme file
+- setup conda environment, bu running environment.yaml file as:
+conda env create -f environment.yaml
+
+This will create the conda environment, but it will show error in installing xtb-python via pip --> first activate the generated conda environment as `conda active pentacene-al` --> then install xtb via conda as `conda install -c conda-forge xtb-python`
+
+- then verify whether all environments are working or not.
+generate test_setup.py script in scripts/
+add imports to test and run this script.
+- before this make sure, python interpreter for this conda session is selected as "pentacene-al" and conda env is active
+
+- in my case, it gave error for mace-torch. so install it as `pip install mace-torch"
+
+- try rerunning the test_setup.py script again. it said everuthing ok.
+- stage the commits till here.

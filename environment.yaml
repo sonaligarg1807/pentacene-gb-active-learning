@@ -1,0 +1,19 @@
+name: pentacene-al
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.10
+  - pytorch
+  - ase
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - pandas
+  - pyyaml
+  - jupyter
+  - pip
+  - pip:
+      - mace-torch
+      - xtb-python
