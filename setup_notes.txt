@@ -45,3 +45,19 @@ add imports to test and run this script.
 
 - try rerunning the test_setup.py script again. it said everuthing ok.
 - stage the commits till here.
+
+# Step 2: Seed Dataset Generation
+- Generated 304 pentacene dimer geometries (19 angles x 4 axes x 4 separations,
+  with random slip and thermal jitter), zero skipped combinations.
+- Verified axis vectors against ASE's own .cif parsing.
+- Output: `data/seed_structures/generated_dimers/` (304 .xyz files),
+  `seed_dimers_manifest.csv`.
+- Jitter is applied to perturb the structures to mimic thermal fluctuations
+
+- generated configuration file in config/seed_generation.yaml
+- script for helper functions for dimer generation: src/dimer_utils.py
+- script for running dimer generation: scripts/generate_seed_dimers.py
+- output files: generated_dimers --> 304 structures and a csv file
+- notebooks: analysis.ipynb
+
+points to keep in mind: used monomer.xyz structure from pen-schellhammer, cif file from this folder to get unit cell vectors
