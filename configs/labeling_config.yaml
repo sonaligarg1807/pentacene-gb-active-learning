@@ -1,0 +1,19 @@
+# configs/labeling_config.yaml
+# Settings for ground-truth labeling using GFN2-xTB single-point calculations.
+
+input_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/seed_structures/generated_dimers"
+manifest_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/seed_structures/seed_dimers_manifest.csv"
+
+# Output: a single extended XYZ file containing all labeled structures
+# (energy + forces embedded), ready for MACE training.
+output_labeled_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/seed_dataset_labeled.xyz"
+
+# Log of any structures that failed to converge or errored out
+failed_log_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/labeling_failures.csv"
+
+# xTB method: GFN2-xTB is the standard, most accurate tight-binding method
+xtb_method: "GFN2-xTB"
+
+# Charge and spin multiplicity of each dimer (neutral, closed-shell pentacene)
+charge: 0
+multiplicity: 1
