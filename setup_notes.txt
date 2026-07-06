@@ -65,3 +65,11 @@ add imports to test and run this script.
   fluctuations (C-C std=0.068 A, C-H std=0.052 A) match theoretical expectation
   (sigma_bond ~ sigma_atom x sqrt(2)), confirming realistic, non-destructive
   perturbation.
+
+## step3: Running a GFN2-xTB single point calculations on each dimer structures to get ground truth energy and forces.
+- added following files: config/labelling_config.yaml; src/labeler.py; scripts/label_seed_dimers.py
+- Ground-Truth Labeling — Complete
+- Ran GFN2-xTB single-point calculations on all 304 seed dimer structures.
+- 304/304 succeeded, 0 failures.
+- Output: `data/labeled_data/seed_dataset_labeled.xyz` (MACE-ready extended XYZ,
+  with energy in eV and forces in eV/Angstrom embedded per structure/atom).
