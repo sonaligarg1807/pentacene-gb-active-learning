@@ -75,3 +75,11 @@ add imports to test and run this script.
   with energy in eV and forces in eV/Angstrom embedded per structure/atom).
 
 ## step4: Training a small MACE model from scratch on 304 dimer labeled structures 
+- first run failed because of wrong keys used for forces and energies; there is no reference atomic energies (EOs) data
+- why EOs are needed: because instead of learning absolute total energies directly, the model learns the binding/interaction energy relative to isolated atoms.
+- fixing the missing data and keys
+
+- computing atomic energies from xTB. since pentacene has C and H atoms only, use `scripts/compute_atomic_energies.py` and it will print the atomic energies which we have to insert in mace config file
+printed atomic energies `EOs`
+H: E0 = -10.707211 eV
+C: E0 = -48.847445 eV

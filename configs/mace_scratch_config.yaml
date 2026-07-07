@@ -37,3 +37,8 @@ log_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learni
 checkpoints_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/output/models/scratch_v1/checkpoints"
 
 device: "cpu"   # change to "cuda" if you have a GPU available
+
+# Isolated-atom reference energies (eV), computed via GFN2-xTB.
+# Replace these placeholder values with your actual computed E0s.
+# Python-dict-style string passed on the command line, keyed by atomic number (H=1, C=6)
+e0s: "{1: -10.707211, 6: -48.847445}"
