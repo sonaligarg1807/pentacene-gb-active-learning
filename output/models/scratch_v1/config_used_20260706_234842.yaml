@@ -1,0 +1,39 @@
+# configs/mace_scratch_config.yaml
+# Configuration for training a small MACE model FROM SCRATCH on the
+# 304-structure pentacene GB seed dataset. This is a deliberately small,
+# fast baseline model used to validate the pipeline before moving to
+# fine-tuning a foundation model in Step 4b.
+
+name: "pentacene_scratch_v1"
+seed: 42
+
+# --- Data ---
+train_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz"
+valid_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
+
+energy_key: "energy"
+forces_key: "forces"
+
+# --- Model architecture (kept small for fast iteration) ---
+model: "MACE"
+num_channels: 32          # small hidden feature dimension
+max_L: 1                  # low angular resolution, faster training
+r_max: 5.0                # cutoff radius in Angstrom, covers dimer interactions
+num_interactions: 2        # number of message-passing layers
+
+# --- Training settings ---
+batch_size: 8
+max_num_epochs: 200
+lr: 0.01
+weight_decay: 5e-7
+
+# Loss weighting: forces are usually weighted higher than energy for MLIPs
+energy_weight: 1.0
+forces_weight: 100.0
+
+# --- Output ---
+model_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/output/models/scratch_v1"
+log_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/output/models/scratch_v1/logs"
+checkpoints_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/output/models/scratch_v1/checkpoints"
+
+device: "cpu"   # change to "cuda" if you have a GPU available

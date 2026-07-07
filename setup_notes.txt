@@ -73,3 +73,5 @@ add imports to test and run this script.
 - 304/304 succeeded, 0 failures.
 - Output: `data/labeled_data/seed_dataset_labeled.xyz` (MACE-ready extended XYZ,
   with energy in eV and forces in eV/Angstrom embedded per structure/atom).
+
+## step4: Training a small MACE model from scratch on 304 dimer labeled structures 
