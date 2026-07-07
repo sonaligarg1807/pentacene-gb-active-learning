@@ -56,7 +56,7 @@ def main():
         f"--train_file={config['train_file']}",
         f"--valid_file={config['valid_file']}",
         f"--energy_key={config['energy_key']}",
-        f"--EOs={config['e0s']}",
+        f"--E0s={config['e0s']}",
         f"--forces_key={config['forces_key']}",
         f"--model={config['model']}",
         f"--num_channels={config['num_channels']}",

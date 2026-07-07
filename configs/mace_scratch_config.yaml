@@ -11,8 +11,8 @@ seed: 42
 train_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz"
 valid_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
 
-energy_key: "energy"
-forces_key: "forces"
+energy_key: "REF_energy" # changed after renaming the keys in the xyz files
+forces_key: "REF_forces" # changed after renaming the keys in the xyz files
 
 # --- Model architecture (kept small for fast iteration) ---
 model: "MACE"
