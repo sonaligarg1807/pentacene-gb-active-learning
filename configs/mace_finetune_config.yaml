@@ -1,0 +1,31 @@
+# configs/mace_finetune_config.yaml
+# Fine-tunes the pretrained MACE-OFF23 foundation model on the pentacene
+# GB seed dataset, instead of training from scratch.
+
+name: "pentacene_finetune_v1"
+seed: 42
+
+train_file: "data/labeled_data/train.xyz"
+valid_file: "data/labeled_data/valid.xyz"
+
+energy_key: "REF_energy"
+forces_key: "REF_forces"
+
+# Path to the downloaded foundation model checkpoint (update after Step 1)
+foundation_model: "/home/ka/ka_ipc/ka_rv4081/.cache/mace/MACE-OFF23_medium.model"
+
+# Fine-tuning settings: smaller learning rate than scratch training,
+# since we're adapting existing weights, not learning from zero.
+lr: 0.0005
+batch_size: 8
+max_num_epochs: 100
+weight_decay: 5e-7
+
+energy_weight: 1.0
+forces_weight: 100.0
+
+model_dir: "output/models/finetune_v1"
+log_dir: "output/models/finetune_v1/logs"
+checkpoints_dir: "output/models/finetune_v1/checkpoints"
+
+device: "cuda"
