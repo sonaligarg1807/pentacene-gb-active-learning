@@ -95,3 +95,30 @@ C: E0 = -48.847445 eV
 -step4a --> completed
 stopped the model training manually at epoch 126 due to: 1. over heating of laptop as running locally on CPUs --> so shifting everything on Justus2
 2. Model is degrading and overfitting. from the log it already seems that the model is degreding but still will be using the best epoch checkpoint file as best model.
+
+--step4b: shifted everything to Justus2
+- there cloned the repository
+- created conda environment; installed mace-torch and xtb-python.
+- had some problem with PYTHONPATH set already so used this:
+module purge
+unset PYTHONPATH
+conda activate pentacene-al
+python -c "import torch; print(torch.__file__); 
+
+then downloaded the mace foundation model as:
+python -c "
+from mace.calculators import mace_off
+calc = mace_off(model='medium', return_raw_model=True)
+"
+
+this will download the mace foundation model which we will use to retrain our Dataset.
+to find the exact path of the foundation model to be added in the config yaml: find ~/.cache/mace -name "*.model" -o -name "*.pt"
+
+- created the following files: configs/mace_finetune_config.yaml
+add proper paths and path to downloaded foundation model
+
+- then added wrapper script as: scripts/train_finetune_model.py
+no changes needed in that
+
+- added a slurm submission script to run with GPUs: scripts/finetune_justus2.slurm
+added conda environment

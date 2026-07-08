@@ -5,8 +5,8 @@
 name: "pentacene_finetune_v1"
 seed: 42
 
-train_file: "data/labeled_data/train.xyz"
-valid_file: "data/labeled_data/valid.xyz"
+train_file: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/data/labeled_data/train.xyz"
+valid_file: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
 
 energy_key: "REF_energy"
 forces_key: "REF_forces"
@@ -24,8 +24,8 @@ weight_decay: 5e-7
 energy_weight: 1.0
 forces_weight: 100.0
 
-model_dir: "output/models/finetune_v1"
-log_dir: "output/models/finetune_v1/logs"
-checkpoints_dir: "output/models/finetune_v1/checkpoints"
+model_dir: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/output/models/finetune_v1"
+log_dir: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/output/models/finetune_v1/logs"
+checkpoints_dir: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/output/models/finetune_v1/checkpoints"
 
 device: "cuda"
