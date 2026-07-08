@@ -14,9 +14,9 @@ unset PYTHONPATH
 
 conda activate pentacene-al
 
-cd $HOME/pentacene-gb-active-learning
+cd /lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning
 mkdir -p logs
 
-python scripts/train_finetune_model.py
+python /lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/scripts/train_finetune_model.py
 
 echo "Job finished on $(hostname) at $(date)"
