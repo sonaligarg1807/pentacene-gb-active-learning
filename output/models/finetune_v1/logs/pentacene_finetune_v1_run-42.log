@@ -1,0 +1,15 @@
+2026-07-09 11:09:58.081 INFO: ===========VERIFYING SETTINGS===========
+2026-07-09 11:09:58.082 INFO: MACE version: 0.3.16
+2026-07-09 11:09:58.187 INFO: CUDA version: 11.8, CUDA device: 0
+2026-07-09 11:09:58.838 INFO: Using foundation model /home/sgarg/.cache/mace/MACE-OFF23_medium.model as initial checkpoint.
+2026-07-09 11:09:58.840 INFO: ===========LOADING INPUT DATA===========
+2026-07-09 11:09:58.840 INFO: Using heads: ['Default']
+2026-07-09 11:09:58.840 INFO: Using the key specifications to parse data:
+2026-07-09 11:09:58.840 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-07-09 11:09:58.840 INFO: =============    Processing head Default     ===========
+2026-07-09 11:09:59.048 INFO: Training set 1/1 [energy: 259, stress: 0, virials: 0, dipole components: 0, head: 259, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 259, charges: 0]
+2026-07-09 11:09:59.050 INFO: Total Training set [energy: 259, stress: 0, virials: 0, dipole components: 0, head: 259, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 259, charges: 0]
+2026-07-09 11:09:59.103 INFO: Validation set 1/1 [energy: 45, stress: 0, virials: 0, dipole components: 0, head: 45, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 45, charges: 0]
+2026-07-09 11:09:59.104 INFO: Total Validation set [energy: 45, stress: 0, virials: 0, dipole components: 0, head: 45, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 45, charges: 0]
+2026-07-09 11:09:59.104 INFO: Total number of configurations: train=259, valid=45, tests=[],
+2026-07-09 11:09:59.108 INFO: Atomic Numbers used: [np.int64(1), np.int64(6)]

@@ -1,33 +1,32 @@
 #!/bin/bash
-#$ -cwd -l qu=gtx -N mace-finetune
+#$ -cwd
+#$ -l qu=gtx
+#$ -N mace-finetune
 
-################## Start of the Script #####################
+set -euo pipefail
 
-gpu_id=$(echo "$QUEUE" | awk '/a/ {print 0} /b/ {print 1} /c/ {print 2} /d/ {print 3}')
+gpu_id=$(echo "${QUEUE:-}" | awk '/a/ {print 0} /b/ {print 1} /c/ {print 2} /d/ {print 3}')
 
-if [ -z "$gpu_id" ]; then
-    echo "Could not determine gpu_id from QUEUE=$QUEUE"
+if [ -z "${gpu_id:-}" ]; then
+    echo "Could not determine gpu_id from QUEUE=${QUEUE:-unset}"
     echo "Using gpu_id=0 as fallback"
     gpu_id=0
 fi
 
-case $HOSTNAME in
+case "$HOSTNAME" in
     gtx0[1-6]*)
         cores=10
         ;;
     gtx0[7-8]*)
         cores=12
         ;;
-    gtx09*)
-        cores=16
-        ;;
-    gtx10*)
+    gtx09*|gtx10*)
         cores=16
         ;;
     *)
-        echo "Error: Unknown compute node $HOSTNAME"
-        echo "This script only works for gtx01 through gtx10."
-        exit 1
+        echo "Warning: Unknown compute node $HOSTNAME"
+        echo "Using fallback cores=8"
+        cores=8
         ;;
 esac
 
@@ -40,19 +39,19 @@ mkdir -p "$workdir"
     echo "#!/bin/bash"
     echo "# Hostname: $(hostname)"
     echo "# Job ID: $JOB_ID"
-    echo "# QUEUE: $QUEUE"
+    echo "# QUEUE: ${QUEUE:-unset}"
     echo "# GPU ID: $gpu_id"
     echo "# Workdir: $workdir"
-    echo "# Start SSH connection to the running host:"
+    echo "# SSH command:"
     echo "ssh -t $(hostname) 'cd $workdir ; bash'"
 } > job_info
 
 chmod +x job_info
 
-cp -rv ./* "$workdir"
-cd "$workdir" || exit 1
+cp -rv . "$workdir/repo"
+cd "$workdir/repo" || exit 1
 
-conda /home/<your_username>/miniconda3/bin/activate pentacene-al
+source /home/sgarg/miniconda3/bin/activate pentacene-al
 
 echo "Conda environment:"
 which python
@@ -60,19 +59,22 @@ python --version
 
 echo "Host information:"
 hostname
-echo "QUEUE=$QUEUE"
+echo "QUEUE=${QUEUE:-unset}"
 echo "Selected gpu_id=$gpu_id"
 echo "OMP_NUM_THREADS=$cores"
 
 echo "Checking GPU availability:"
-which nvidia-smi
-nvidia-smi
+which nvidia-smi || true
+nvidia-smi || true
 
 echo "Checking PyTorch GPU visibility:"
 python - << 'EOF'
 import torch
 print("Torch version:", torch.__version__)
+print("Torch CUDA version:", torch.version.cuda)
 print("CUDA available:", torch.cuda.is_available())
+print("CUDA device count:", torch.cuda.device_count())
+print("Arch list:", torch.cuda.get_arch_list())
 print("Device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "None")
 EOF
 
@@ -94,4 +96,4 @@ SECS=$((((duration % 86400) % 3600) % 60))
 
 echo "Time taken: $DAYS days, $HOURS hours, $MINS minutes and $SECS seconds." | tee TIME
 
-cp -r * $main_dir
+cp -r "$workdir/repo"/* "$main_dir"/

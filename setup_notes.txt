@@ -128,3 +128,19 @@ added conda environment
 - so tried on colab but that doesn't work as well. it was lot of setup work. changing runtime type from CPUs to GPUs --> mounting drive --> installing mace-torch and cloning git repo. also dataset was not present because t was quite large so not uploaded on git repo.
 
 - now trying on TCB
+after installing mace and all requirements, it showed incompatibility with CUDA version. so fixed that by following:
+on login node install:
+```
+pip uninstall -y torch torchvision torchaudio
+pip install torch==2.7.1 torchvision==0.22.1 --index-url https://download.pytorch.org/whl/cu118
+```
+then start a compute node interactively
+qlogin -l qu=gtx
+conda activate pentacene-al
+check the following versions:
+```
+python -c "import torch; print(torch.__version__); print(torch.version.cuda); print(torch.cuda.get_arch_list()); print(torch.cuda.is_available())"
+```
+after all this worked, exit the compute node
+then submitted the job
+but still having issues due to multihead reply finetunning
