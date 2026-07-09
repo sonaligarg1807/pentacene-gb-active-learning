@@ -23,7 +23,7 @@ import shutil
 import yaml
 from datetime import datetime
 
-CONFIG_PATH = "configs/mace_finetune_config.yaml"
+CONFIG_PATH = "/home/sgarg/git-repo/pentacene-gb-active-learning/configs/mace_finetune_config.yaml"
 
 
 def main():

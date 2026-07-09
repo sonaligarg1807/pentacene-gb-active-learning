@@ -5,14 +5,14 @@
 name: "pentacene_finetune_v1"
 seed: 42
 
-train_file: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/data/labeled_data/train.xyz"
-valid_file: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
+train_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz"
+valid_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
 
 energy_key: "REF_energy"
 forces_key: "REF_forces"
 
 # Path to the downloaded foundation model checkpoint (update after Step 1)
-foundation_model: "/home/ka/ka_ipc/ka_rv4081/.cache/mace/MACE-OFF23_medium.model"
+foundation_model: "/home/sgarg/.cache/mace/MACE-OFF23_medium.model"
 
 # Fine-tuning settings: smaller learning rate than scratch training,
 # since we're adapting existing weights, not learning from zero.
@@ -24,8 +24,8 @@ weight_decay: 5e-7
 energy_weight: 1.0
 forces_weight: 100.0
 
-model_dir: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/output/models/finetune_v1"
-log_dir: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/output/models/finetune_v1/logs"
-checkpoints_dir: "/lustre/work/ws/ws1/ka_rv4081-pentacene-al/pentacene-gb-active-learning/output/models/finetune_v1/checkpoints"
+model_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1"
+log_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1/logs"
+checkpoints_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1/checkpoints"
 
 device: "cuda"

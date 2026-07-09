@@ -122,3 +122,9 @@ no changes needed in that
 
 - added a slurm submission script to run with GPUs: scripts/finetune_justus2.slurm
 added conda environment
+
+- although Justus2 has been fixed but training couldn't run because it is down
+
+- so tried on colab but that doesn't work as well. it was lot of setup work. changing runtime type from CPUs to GPUs --> mounting drive --> installing mace-torch and cloning git repo. also dataset was not present because t was quite large so not uploaded on git repo.
+
+- now trying on TCB

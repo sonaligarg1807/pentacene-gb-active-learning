@@ -1,0 +1,97 @@
+#!/bin/bash
+#$ -cwd -l qu=gtx -N mace-finetune
+
+################## Start of the Script #####################
+
+gpu_id=$(echo "$QUEUE" | awk '/a/ {print 0} /b/ {print 1} /c/ {print 2} /d/ {print 3}')
+
+if [ -z "$gpu_id" ]; then
+    echo "Could not determine gpu_id from QUEUE=$QUEUE"
+    echo "Using gpu_id=0 as fallback"
+    gpu_id=0
+fi
+
+case $HOSTNAME in
+    gtx0[1-6]*)
+        cores=10
+        ;;
+    gtx0[7-8]*)
+        cores=12
+        ;;
+    gtx09*)
+        cores=16
+        ;;
+    gtx10*)
+        cores=16
+        ;;
+    *)
+        echo "Error: Unknown compute node $HOSTNAME"
+        echo "This script only works for gtx01 through gtx10."
+        exit 1
+        ;;
+esac
+
+main_dir=$(pwd)
+workdir=/scratch/$USER/MACE_$JOB_ID
+
+mkdir -p "$workdir"
+
+{
+    echo "#!/bin/bash"
+    echo "# Hostname: $(hostname)"
+    echo "# Job ID: $JOB_ID"
+    echo "# QUEUE: $QUEUE"
+    echo "# GPU ID: $gpu_id"
+    echo "# Workdir: $workdir"
+    echo "# Start SSH connection to the running host:"
+    echo "ssh -t $(hostname) 'cd $workdir ; bash'"
+} > job_info
+
+chmod +x job_info
+
+cp -rv ./* "$workdir"
+cd "$workdir" || exit 1
+
+conda /home/<your_username>/miniconda3/bin/activate pentacene-al
+
+echo "Conda environment:"
+which python
+python --version
+
+echo "Host information:"
+hostname
+echo "QUEUE=$QUEUE"
+echo "Selected gpu_id=$gpu_id"
+echo "OMP_NUM_THREADS=$cores"
+
+echo "Checking GPU availability:"
+which nvidia-smi
+nvidia-smi
+
+echo "Checking PyTorch GPU visibility:"
+python - << 'EOF'
+import torch
+print("Torch version:", torch.__version__)
+print("CUDA available:", torch.cuda.is_available())
+print("Device:", torch.cuda.get_device_name(0) if torch.cuda.is_available() else "None")
+EOF
+
+export OMP_NUM_THREADS=$cores
+export CUDA_VISIBLE_DEVICES=$gpu_id
+ulimit -s unlimited
+
+start=$(date "+%s")
+
+time python /home/sgarg/git-repo/pentacene-gb-active-learning/scripts/train_finetune_model.py 2>err.out 1>output.dat
+
+end=$(date "+%s")
+duration=$((end - start))
+
+DAYS=$((duration / 86400))
+HOURS=$(((duration % 86400) / 3600))
+MINS=$((((duration % 86400) % 3600) / 60))
+SECS=$((((duration % 86400) % 3600) % 60))
+
+echo "Time taken: $DAYS days, $HOURS hours, $MINS minutes and $SECS seconds." | tee TIME
+
+cp -r * $main_dir
