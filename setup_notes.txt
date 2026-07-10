@@ -144,3 +144,17 @@ python -c "import torch; print(torch.__version__); print(torch.version.cuda); pr
 after all this worked, exit the compute node
 then submitted the job
 but still having issues due to multihead reply finetunning
+
+- the issue of multihead reply finetunning is solved by adding `multiheads_finetuning=false` in config file
+- but then it crashed because of absence of E0s. For this :
+E0s: "foundation" --> doesn't give reasonable initial RMSE of forces and energy. they were extremely high.
+but E0s: "average" --> gave reasonable initial RMSE. 
+so submitted full training with max_epochs=100
+
+```
+possible reasons of crashes
+```
+1. OOM issue with GPUs. variables to change in yaml: default_type: float64 --> float32 and batch_size: from 8-->4-->2
+2. to check quickly: login to interactive session --> run the python script there
+3. sometimes after killing the script, it is still running in bg. to check that: nvidia-smi --> check which processes are running --> kill if something killed is still running: `kill -9 PID`
+4. absence of flags or using default parameters with foundation model not consistent with training data

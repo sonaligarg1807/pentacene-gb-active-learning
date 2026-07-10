@@ -18,7 +18,7 @@ foundation_model: "/home/sgarg/.cache/mace/MACE-OFF23_medium.model"
 # since we're adapting existing weights, not learning from zero.
 lr: 0.0005
 batch_size: 8
-max_num_epochs: 1
+max_num_epochs: 100
 weight_decay: 5e-7
 
 energy_weight: 1.0
@@ -30,3 +30,5 @@ checkpoints_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/model
 
 device: "cuda"
 multiheads_finetuning: false
+E0s: "average"
+default_dtype: "float32"
