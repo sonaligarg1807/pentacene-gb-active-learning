@@ -1,0 +1,13 @@
+valid_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
+
+models:
+  scratch: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/scratch_v1/pentacene_scratch_v1_converted.model"
+  finetuned: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1/pentacene_finetune_v1.model"
+
+device: "cpu"
+
+output_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/model_comparison"
+
+plot_colors:
+  scratch: "tab:orange"
+  finetuned: "tab:blue"

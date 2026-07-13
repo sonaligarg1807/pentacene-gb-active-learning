@@ -30,7 +30,7 @@ import yaml
 from datetime import datetime
 
 
-CONFIG_PATH = "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/configs/mace_scratch_config.yaml"
+CONFIG_PATH = "/home/sgarg/git-repo/pentacene-gb-active-learning/configs/mace_scratch_config.yaml"
 
 
 def main():

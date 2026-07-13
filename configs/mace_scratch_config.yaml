@@ -8,8 +8,8 @@ name: "pentacene_scratch_v1"
 seed: 42
 
 # --- Data ---
-train_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz"
-valid_file: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
+train_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz"
+valid_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
 
 energy_key: "REF_energy" # changed after renaming the keys in the xyz files
 forces_key: "REF_forces" # changed after renaming the keys in the xyz files
@@ -23,7 +23,7 @@ num_interactions: 2        # number of message-passing layers
 
 # --- Training settings ---
 batch_size: 8
-max_num_epochs: 200
+max_num_epochs: 1
 lr: 0.01
 weight_decay: 5e-7
 
@@ -32,9 +32,9 @@ energy_weight: 1.0
 forces_weight: 100.0
 
 # --- Output ---
-model_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/output/models/scratch_v1"
-log_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/output/models/scratch_v1/logs"
-checkpoints_dir: "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/output/models/scratch_v1/checkpoints"
+model_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/scratch_v1_epoch1"
+log_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/scratch_v1_epoch1/logs"
+checkpoints_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/scratch_v1_epoch1/checkpoints"
 
 device: "cpu"   # change to "cuda" if you have a GPU available
 

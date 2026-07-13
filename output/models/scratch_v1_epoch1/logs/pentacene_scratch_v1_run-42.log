@@ -1,0 +1,70 @@
+2026-07-13 10:54:36.255 INFO: ===========VERIFYING SETTINGS===========
+2026-07-13 10:54:36.256 INFO: MACE version: 0.3.16
+2026-07-13 10:54:36.256 INFO: Using CPU
+2026-07-13 10:54:36.465 INFO: ===========LOADING INPUT DATA===========
+2026-07-13 10:54:36.465 INFO: Using heads: ['Default']
+2026-07-13 10:54:36.465 INFO: Using the key specifications to parse data:
+2026-07-13 10:54:36.465 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-07-13 10:54:36.465 INFO: =============    Processing head Default     ===========
+2026-07-13 10:54:36.723 INFO: Training set 1/1 [energy: 259, stress: 0, virials: 0, dipole components: 0, head: 259, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 259, charges: 0]
+2026-07-13 10:54:36.727 INFO: Total Training set [energy: 259, stress: 0, virials: 0, dipole components: 0, head: 259, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 259, charges: 0]
+2026-07-13 10:54:36.787 INFO: Validation set 1/1 [energy: 45, stress: 0, virials: 0, dipole components: 0, head: 45, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 45, charges: 0]
+2026-07-13 10:54:36.788 INFO: Total Validation set [energy: 45, stress: 0, virials: 0, dipole components: 0, head: 45, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 45, charges: 0]
+2026-07-13 10:54:36.788 INFO: Total number of configurations: train=259, valid=45, tests=[],
+2026-07-13 10:54:36.794 INFO: Atomic Numbers used: [np.int64(1), np.int64(6)]
+2026-07-13 10:54:36.794 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-07-13 10:54:36.795 INFO: Atomic Energies used (z: eV) for head Default: {1: -10.707211, 6: -48.847445}
+2026-07-13 10:54:36.795 INFO: Processing datasets for head 'Default'
+2026-07-13 10:54:37.363 INFO: Combining 1 list datasets for head 'Default'
+2026-07-13 10:54:37.463 INFO: Combining 1 list datasets for head 'Default_valid'
+2026-07-13 10:54:37.463 INFO: Combined validation datasets for Default
+2026-07-13 10:54:37.464 INFO: Head 'Default' training dataset size: 259
+2026-07-13 10:54:37.464 INFO: Computing average number of neighbors
+2026-07-13 10:54:37.807 INFO: Average number of neighbors: 22.684244791666668
+2026-07-13 10:54:37.807 INFO: During training the following quantities will be reported: energy, forces
+2026-07-13 10:54:37.807 INFO: ===========MODEL DETAILS===========
+2026-07-13 10:54:38.048 INFO: Building model
+2026-07-13 10:54:38.048 INFO: Message passing with 32 channels and max_L=1 (32x0e+32x1o)
+2026-07-13 10:54:38.049 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-07-13 10:54:38.049 INFO: 8 radial and 5 basis functions
+2026-07-13 10:54:38.049 INFO: Radial cutoff: 5.0 A (total receptive field for each atom: 10.0 A)
+2026-07-13 10:54:38.049 INFO: Distance transform for radial basis functions: None
+2026-07-13 10:54:38.049 INFO: Hidden irreps: 32x0e+32x1o
+2026-07-13 10:54:40.592 INFO: ===========OPTIMIZER INFORMATION===========
+2026-07-13 10:54:40.592 INFO: Using ADAM as parameter optimizer
+2026-07-13 10:54:40.593 INFO: Batch size: 8
+2026-07-13 10:54:40.593 INFO: Number of gradient updates: 32
+2026-07-13 10:54:40.593 INFO: Learning rate: 0.01, weight decay: 5e-07
+2026-07-13 10:54:40.593 INFO: WeightedEnergyForcesLoss(energy_weight=1.000, forces_weight=100.000)
+2026-07-13 10:54:40.594 INFO: === Layer's learning rates ===
+2026-07-13 10:54:40.595 INFO: Param group 0: lr = 0.01
+2026-07-13 10:54:40.595 INFO: Param group 1: lr = 0.01
+2026-07-13 10:54:40.595 INFO: Param group 2: lr = 0.01
+2026-07-13 10:54:40.595 INFO: Param group 3: lr = 0.01
+2026-07-13 10:54:40.595 INFO: Param group 4: lr = 0.01
+2026-07-13 10:54:40.596 INFO: Using gradient clipping with tolerance=10.000
+2026-07-13 10:54:40.596 INFO: 
+2026-07-13 10:54:40.596 INFO: ===========TRAINING===========
+2026-07-13 10:54:40.596 INFO: Started training, reporting errors on validation set
+2026-07-13 10:54:40.596 INFO: Loss metrics on validation set
+2026-07-13 10:54:48.277 INFO: Initial: head: Default, loss=28.95568031, RMSE_E_per_atom= 6934.81 meV, RMSE_F= 1499.54 meV / A
+2026-07-13 10:56:35.828 INFO: Epoch 0: head: Default, loss=5.66878227, RMSE_E_per_atom= 4385.63 meV, RMSE_F=  573.70 meV / A
+2026-07-13 10:56:35.858 INFO: Training complete
+2026-07-13 10:56:35.858 INFO: 
+2026-07-13 10:56:35.859 INFO: ===========RESULTS===========
+2026-07-13 10:56:35.859 INFO: Loading checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/scratch_v1_epoch1/checkpoints/pentacene_scratch_v1_run-42_epoch-0.pt
+2026-07-13 10:56:35.904 INFO: Loaded Stage one model from epoch 0 for evaluation
+2026-07-13 10:56:35.904 INFO: Saving model to /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/scratch_v1_epoch1/checkpoints/pentacene_scratch_v1_run-42.model
+2026-07-13 10:56:36.187 INFO: Compiling model, saving metadata to /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/scratch_v1_epoch1/pentacene_scratch_v1_compiled.model
+2026-07-13 10:56:37.964 INFO: Computing metrics for training, validation, and test sets
+2026-07-13 10:56:37.965 INFO: Skipping evaluation for heads: ['pt_head']
+2026-07-13 10:56:37.965 INFO: Evaluating train_Default ...
+2026-07-13 10:57:10.268 INFO: Evaluating valid_Default ...
+2026-07-13 10:57:16.585 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % |
++---------------+---------------------+------------------+-------------------+
+| train_Default |         4382.0      |        580.9     |         35.92     |
+| valid_Default |         4385.6      |        573.7     |         38.09     |
++---------------+---------------------+------------------+-------------------+
+2026-07-13 10:58:13.317 INFO: Done

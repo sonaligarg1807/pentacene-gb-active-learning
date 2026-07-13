@@ -158,3 +158,30 @@ possible reasons of crashes
 2. to check quickly: login to interactive session --> run the python script there
 3. sometimes after killing the script, it is still running in bg. to check that: nvidia-smi --> check which processes are running --> kill if something killed is still running: `kill -9 PID`
 4. absence of flags or using default parameters with foundation model not consistent with training data
+
+Step4b: finetune training completed with good results: TIME it took: Time taken: 0 days, 0 hours, 20 minutes and 45 seconds.
+also removd all err.out, output.dat files and moved results from scripts to output/models/finetune_v1
+
+## Step4c: evaluating both models: scratch vs finetune on the same valid.xyz file using mace_eval_configs; then generating a joint error table and p
+- Needed compiled.model from both scratch and finetunning. 
+- Have a compiled.model from "finetune", but not from scratch run because it was stopped in between.
+- so for generating a .model file for scratch run, run scratch_config.yaml with max_epochs=1
+running `mace_scratch_config.yaml` and `train_scratch_model.py`
+will be changing the paths inside yaml file for saving the model.
+- from this we got a compiled.model file --> output/models/scratch_v1_epoch1/pentacene_scratch_v1.model
+- now using this model we feed the scratch_v1 .pt file data in it using the script `checkpoint_to_model.py`.
+`python checkpoint_ro_model.py ../output/models/scratch_v1/checkpoints/pentacene_scratch_v1_run-42_epoch-105.pt ../output/models/scratch_v1_epoch1/pentacene_scratch_v1.model ../output/models/scratch_v1/pentacene_scratch_v1_converted.model`
+
+- before trusting this converted model --> evaluated it against the valid.xyz data
+```
+===== Evaluation Results =====
+Num configs evaluated: 45
+RMSE Energy  : 2.1 meV/atom
+RMSE Forces  : 26.5 meV/A
+Relative F RMSE: 1.76 %
+================================
+```
+
+- To compare both models from scratch and finetuning, used the following scripts `model_comparison_config.yaml` and `scripts/compare_modela.py`
+ran this and results are saved in `/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/model_comparison` --> both models are trained well.
+important point here: since finetuning was done on GPUs, so for comparing the above models, login interactively on GPU node and then run the comparison script, otherwise will get runtime error

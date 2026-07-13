@@ -1,0 +1,12 @@
+{
+  "scratch": {
+    "rmse_e_mev_per_atom": 2.1018758455982733,
+    "rmse_f_mev_per_A": 26.548303209923738,
+    "relative_f_rmse_pct": 1.76256025342604
+  },
+  "finetuned": {
+    "rmse_e_mev_per_atom": 3.87929985720556,
+    "rmse_f_mev_per_A": 24.889573859648348,
+    "relative_f_rmse_pct": 1.6524360620278584
+  }
+}
