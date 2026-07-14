@@ -1,0 +1,15 @@
+name: "pentacene_committee_v1"
+
+device: "cuda"  # or "cpu" if you want to run on CPU
+
+models:
+  - type: "scratch"
+    path: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/scratch_v1/pentacene_scratch_v1_converted.model"
+  - type: "finetune_seed42"
+    path: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1/pentacene_finetune_v1.model"
+  - type: "finetune_seed99"
+    path: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed99/pentacene_finetune_v1.model"
+  - type: "finetune_seed123"
+    path: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/pentacene_finetune_v1.model"
+
+output_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/committee_v1"

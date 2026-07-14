@@ -1,0 +1,319 @@
+2026-07-14 13:00:34.369 INFO: ===========VERIFYING SETTINGS===========
+2026-07-14 13:00:34.370 INFO: MACE version: 0.3.16
+2026-07-14 13:00:34.370 DEBUG: Configuration: Namespace(config=None, name='pentacene_finetune_v1', seed=123, work_dir='.', log_dir='/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/logs', model_dir='/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123', checkpoints_dir='/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints', results_dir='./results', downloads_dir='./downloads', device='cuda', default_dtype='float32', distributed=False, launcher='slurm', log_level='INFO', plot=True, plot_frequency=0, plot_interaction_e=False, error_table='PerAtomRMSE', model='MACE', r_max=5.0, radial_type='bessel', num_radial_basis=8, num_cutoff_basis=5, pair_repulsion=False, distance_transform='None', apply_cutoff=True, use_last_readout_only=False, use_embedding_readout=False, interaction='RealAgnosticResidualInteractionBlock', interaction_first='RealAgnosticResidualInteractionBlock', max_ell=3, correlation=3, use_reduced_cg=False, use_so3=False, use_agnostic_product=False, num_interactions=2, MLP_irreps='16x0e', radial_MLP='[64, 64, 64]', hidden_irreps='128x0e + 128x1o', edge_irreps=None, use_edge_irreps_first=False, num_channels=128, max_L=1, gate='silu', kspace_cutoff_factor=1.5, atomic_multipoles_max_l=0, atomic_multipoles_smearing_width=1.0, field_feature_max_l=0, field_feature_widths='[1.0]', field_feature_norms=None, num_recursion_steps=1, field_si=False, include_electrostatic_self_interaction=False, add_local_electron_energy=False, quadrupole_feature_corrections=False, return_electrostatic_potentials=False, field_norm_factor=0.02, fixedpoint_update_config=None, field_readout_config=None, scaling='rms_forces_scaling', avg_num_neighbors=1, compute_avg_num_neighbors=True, compute_stress=False, compute_forces=True, compute_polarizability=False, compute_atomic_dipole=False, train_file='/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz', valid_file='/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz', valid_fraction=0.1, test_file=None, test_dir=None, multi_processed_test=False, num_workers=0, pin_memory=True, atomic_numbers=None, mean=None, std=None, statistics_file=None, les_arguments=None, E0s='average', pseudolabel_replay=False, pseudolabel_replay_compute_stress=False, foundation_filter_elements=True, heads=None, multiheads_finetuning=False, foundation_head=None, weight_pt_head=1.0, real_pt_data_ratio_threshold=0.1, num_samples_pt=10000, force_mh_ft_lr=False, subselect_pt='random', filter_type_pt='none', allow_random_padding_pt=True, pt_train_file=None, pt_valid_file=None, foundation_model_elements=False, keep_isolated_atoms=False, lora=False, lora_rank=4, lora_alpha=1.0, energy_key='REF_energy', forces_key='REF_forces', virials_key='REF_virials', stress_key='REF_stress', dipole_key='dipole', polarizability_key='polarizability', head_key='head', charges_key='REF_charges', elec_temp_key='elec_temp', total_spin_key='total_spin', total_charge_key='total_charge', embedding_specs=None, skip_evaluate_heads='pt_head', loss='weighted', forces_weight=100.0, swa_forces_weight=100.0, energy_weight=1.0, swa_energy_weight=1000.0, virials_weight=1.0, swa_virials_weight=10.0, stress_weight=1.0, swa_stress_weight=10.0, dipole_weight=1.0, swa_dipole_weight=1.0, swa_polarizability_weight=1.0, polarizability_weight=1.0, config_type_weights='{"Default":1.0}', huber_delta=0.01, optimizer='adam', beta=0.9, beta1_schedulefree=0.9, beta2_schedulefree=0.98, batch_size=8, valid_batch_size=10, lr=0.0005, swa_lr=0.001, weight_decay=5e-07, lr_params_factors='{"embedding_lr_factor": 1.0, "interactions_lr_factor": 1.0, "products_lr_factor": 1.0, "readouts_lr_factor": 1.0}', freeze=None, amsgrad=True, scheduler='ReduceLROnPlateau', lr_factor=0.8, scheduler_patience=50, lr_scheduler_gamma=0.9993, swa=False, start_swa=None, lbfgs=False, ema=False, ema_decay=0.99, max_num_epochs=100, patience=2048, foundation_model='/home/sgarg/.cache/mace/MACE-OFF23_medium.model', foundation_model_kwargs='{}', foundation_model_readout=True, eval_interval=1, keep_checkpoints=False, save_all_checkpoints=False, restart_latest=False, save_cpu=False, clip_grad=10.0, dry_run=False, enable_cueq=False, only_cueq=False, enable_oeq=False, wandb=False, wandb_dir=None, wandb_project='', wandb_entity='', wandb_name='', wandb_log_hypers=['num_channels', 'max_L', 'correlation', 'lr', 'swa_lr', 'weight_decay', 'batch_size', 'max_num_epochs', 'start_swa', 'energy_weight', 'forces_weight'], key_specification=KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'}))
+2026-07-14 13:00:34.449 INFO: CUDA version: 11.8, CUDA device: 0
+2026-07-14 13:00:34.709 DEBUG: Popen(['git', 'version'], cwd=/scratch/sgarg/MACE_290679/repo, stdin=None, shell=False, universal_newlines=False)
+2026-07-14 13:00:34.892 DEBUG: Popen(['git', 'version'], cwd=/scratch/sgarg/MACE_290679/repo, stdin=None, shell=False, universal_newlines=False)
+2026-07-14 13:00:34.915 DEBUG: sys.platform='linux', git_executable='git'
+2026-07-14 13:00:34.916 DEBUG: Error accessing Git repository: /scratch/sgarg/MACE_290679/repo
+2026-07-14 13:00:35.243 INFO: Using foundation model /home/sgarg/.cache/mace/MACE-OFF23_medium.model as initial checkpoint.
+2026-07-14 13:00:35.245 INFO: ===========LOADING INPUT DATA===========
+2026-07-14 13:00:35.246 INFO: Using heads: ['Default']
+2026-07-14 13:00:35.246 INFO: Using the key specifications to parse data:
+2026-07-14 13:00:35.246 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-07-14 13:00:35.246 INFO: =============    Processing head Default     ===========
+2026-07-14 13:00:35.247 DEBUG: Loading training file: /home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz
+2026-07-14 13:00:35.430 INFO: Training set 1/1 [energy: 259, stress: 0, virials: 0, dipole components: 0, head: 259, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 259, charges: 0]
+2026-07-14 13:00:35.431 INFO: Total Training set [energy: 259, stress: 0, virials: 0, dipole components: 0, head: 259, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 259, charges: 0]
+2026-07-14 13:00:35.471 INFO: Validation set 1/1 [energy: 45, stress: 0, virials: 0, dipole components: 0, head: 45, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 45, charges: 0]
+2026-07-14 13:00:35.471 INFO: Total Validation set [energy: 45, stress: 0, virials: 0, dipole components: 0, head: 45, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 45, charges: 0]
+2026-07-14 13:00:35.471 INFO: Total number of configurations: train=259, valid=45, tests=[],
+2026-07-14 13:00:35.475 INFO: Atomic Numbers used: [np.int64(1), np.int64(6)]
+2026-07-14 13:00:35.475 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-07-14 13:00:35.475 INFO: Computing average Atomic Energies using least squares regression
+2026-07-14 13:00:35.495 INFO: Atomic Energies used (z: eV) for head Default: {1: -30.35471541527474, 6: -47.700267081146045}
+2026-07-14 13:00:35.495 INFO: Processing datasets for head 'Default'
+2026-07-14 13:00:35.857 DEBUG: Successfully loaded dataset from ASE files: ['/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz']
+2026-07-14 13:00:35.857 INFO: Combining 1 list datasets for head 'Default'
+2026-07-14 13:00:35.918 DEBUG: Successfully loaded validation dataset from ASE files: ['/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz']
+2026-07-14 13:00:35.919 INFO: Combining 1 list datasets for head 'Default_valid'
+2026-07-14 13:00:35.919 INFO: Combined validation datasets for Default
+2026-07-14 13:00:35.919 INFO: Head 'Default' training dataset size: 259
+2026-07-14 13:00:35.919 INFO: Computing average number of neighbors
+2026-07-14 13:00:36.104 INFO: Average number of neighbors: 22.66851043701172
+2026-07-14 13:00:36.104 INFO: During training the following quantities will be reported: energy, forces
+2026-07-14 13:00:36.104 INFO: ===========MODEL DETAILS===========
+2026-07-14 13:00:36.337 INFO: Loading FOUNDATION model
+2026-07-14 13:00:36.339 INFO: Using filtered elements: [np.int64(1), np.int64(6)]
+2026-07-14 13:00:36.339 INFO: Model configuration extracted from foundation model
+2026-07-14 13:00:36.339 INFO: Using weighted loss function for fine-tuning
+2026-07-14 13:00:36.339 INFO: Message passing with hidden irreps 128x0e+128x1o)
+2026-07-14 13:00:36.339 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-07-14 13:00:36.339 INFO: Radial cutoff: 5.0 A (total receptive field for each atom: 10.0 A)
+2026-07-14 13:00:36.339 INFO: Distance transform for radial basis functions: None
+2026-07-14 13:00:38.077 INFO: ===========OPTIMIZER INFORMATION===========
+2026-07-14 13:00:38.077 INFO: Using ADAM as parameter optimizer
+2026-07-14 13:00:38.077 INFO: Batch size: 8
+2026-07-14 13:00:38.077 INFO: Number of gradient updates: 3237
+2026-07-14 13:00:38.077 INFO: Learning rate: 0.0005, weight decay: 5e-07
+2026-07-14 13:00:38.078 INFO: WeightedEnergyForcesLoss(energy_weight=1.000, forces_weight=100.000)
+2026-07-14 13:00:38.078 INFO: === Layer's learning rates ===
+2026-07-14 13:00:38.079 INFO: Param group 0: lr = 0.0005
+2026-07-14 13:00:38.079 INFO: Param group 1: lr = 0.0005
+2026-07-14 13:00:38.079 INFO: Param group 2: lr = 0.0005
+2026-07-14 13:00:38.079 INFO: Param group 3: lr = 0.0005
+2026-07-14 13:00:38.079 INFO: Param group 4: lr = 0.0005
+2026-07-14 13:00:38.079 INFO: Using gradient clipping with tolerance=10.000
+2026-07-14 13:00:38.079 INFO: 
+2026-07-14 13:00:38.079 INFO: ===========TRAINING===========
+2026-07-14 13:00:38.079 INFO: Started training, reporting errors on validation set
+2026-07-14 13:00:38.079 INFO: Loss metrics on validation set
+2026-07-14 13:00:47.798 INFO: Initial: head: Default, loss=4.37033749, RMSE_E_per_atom= 5396.95 meV, RMSE_F=  323.52 meV / A
+2026-07-14 13:01:12.778 INFO: Epoch 0: head: Default, loss=2.98251510, RMSE_E_per_atom= 5132.26 meV, RMSE_F=   72.30 meV / A
+2026-07-14 13:01:12.780 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-0.pt
+2026-07-14 13:01:24.381 INFO: Epoch 1: head: Default, loss=2.50844669, RMSE_E_per_atom= 4711.83 meV, RMSE_F=   62.03 meV / A
+2026-07-14 13:01:24.382 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-0.pt
+2026-07-14 13:01:24.404 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-1.pt
+2026-07-14 13:01:36.000 INFO: Epoch 2: head: Default, loss=1.97811925, RMSE_E_per_atom= 4166.34 meV, RMSE_F=   67.84 meV / A
+2026-07-14 13:01:36.002 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-1.pt
+2026-07-14 13:01:36.025 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-2.pt
+2026-07-14 13:01:47.682 INFO: Epoch 3: head: Default, loss=1.33980894, RMSE_E_per_atom= 3344.29 meV, RMSE_F=   96.10 meV / A
+2026-07-14 13:01:47.684 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-2.pt
+2026-07-14 13:01:47.928 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-3.pt
+2026-07-14 13:01:59.619 INFO: Epoch 4: head: Default, loss=0.78134793, RMSE_E_per_atom= 2314.70 meV, RMSE_F=  132.98 meV / A
+2026-07-14 13:01:59.620 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-3.pt
+2026-07-14 13:01:59.642 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-4.pt
+2026-07-14 13:02:11.289 INFO: Epoch 5: head: Default, loss=0.48411623, RMSE_E_per_atom= 1623.81 meV, RMSE_F=  134.68 meV / A
+2026-07-14 13:02:11.290 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-4.pt
+2026-07-14 13:02:11.309 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-5.pt
+2026-07-14 13:02:23.065 INFO: Epoch 6: head: Default, loss=0.32121515, RMSE_E_per_atom= 1137.68 meV, RMSE_F=  129.62 meV / A
+2026-07-14 13:02:23.066 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-5.pt
+2026-07-14 13:02:23.092 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-6.pt
+2026-07-14 13:02:34.762 INFO: Epoch 7: head: Default, loss=0.21013156, RMSE_E_per_atom=  757.13 meV, RMSE_F=  117.89 meV / A
+2026-07-14 13:02:34.763 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-6.pt
+2026-07-14 13:02:34.789 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-7.pt
+2026-07-14 13:02:46.622 INFO: Epoch 8: head: Default, loss=0.16597842, RMSE_E_per_atom=  497.69 meV, RMSE_F=  114.28 meV / A
+2026-07-14 13:02:46.623 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-7.pt
+2026-07-14 13:02:46.644 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-8.pt
+2026-07-14 13:02:58.315 INFO: Epoch 9: head: Default, loss=0.12202486, RMSE_E_per_atom=  381.26 meV, RMSE_F=  100.14 meV / A
+2026-07-14 13:02:58.316 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-8.pt
+2026-07-14 13:02:58.451 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-9.pt
+2026-07-14 13:03:10.164 INFO: Epoch 10: head: Default, loss=0.10457764, RMSE_E_per_atom=  297.89 meV, RMSE_F=   94.78 meV / A
+2026-07-14 13:03:10.164 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-9.pt
+2026-07-14 13:03:10.208 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-10.pt
+2026-07-14 13:03:21.986 INFO: Epoch 11: head: Default, loss=0.07972507, RMSE_E_per_atom=  249.71 meV, RMSE_F=   83.23 meV / A
+2026-07-14 13:03:21.987 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-10.pt
+2026-07-14 13:03:22.009 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-11.pt
+2026-07-14 13:03:33.802 INFO: Epoch 12: head: Default, loss=0.07228179, RMSE_E_per_atom=  211.27 meV, RMSE_F=   80.09 meV / A
+2026-07-14 13:03:33.803 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-11.pt
+2026-07-14 13:03:33.941 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-12.pt
+2026-07-14 13:03:45.812 INFO: Epoch 13: head: Default, loss=0.06492478, RMSE_E_per_atom=  163.36 meV, RMSE_F=   77.04 meV / A
+2026-07-14 13:03:45.813 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-12.pt
+2026-07-14 13:03:45.834 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-13.pt
+2026-07-14 13:03:57.803 INFO: Epoch 14: head: Default, loss=0.05069343, RMSE_E_per_atom=  127.98 meV, RMSE_F=   68.16 meV / A
+2026-07-14 13:03:57.804 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-13.pt
+2026-07-14 13:03:57.939 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-14.pt
+2026-07-14 13:04:09.938 INFO: Epoch 15: head: Default, loss=0.04762435, RMSE_E_per_atom=  121.15 meV, RMSE_F=   66.27 meV / A
+2026-07-14 13:04:09.938 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-14.pt
+2026-07-14 13:04:10.073 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-15.pt
+2026-07-14 13:04:21.923 INFO: Epoch 16: head: Default, loss=0.04395022, RMSE_E_per_atom=  107.55 meV, RMSE_F=   63.60 meV / A
+2026-07-14 13:04:21.924 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-15.pt
+2026-07-14 13:04:21.945 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-16.pt
+2026-07-14 13:04:33.828 INFO: Epoch 17: head: Default, loss=0.03908500, RMSE_E_per_atom=   88.71 meV, RMSE_F=   60.40 meV / A
+2026-07-14 13:04:33.829 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-16.pt
+2026-07-14 13:04:33.851 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-17.pt
+2026-07-14 13:04:46.040 INFO: Epoch 18: head: Default, loss=0.03613438, RMSE_E_per_atom=   88.31 meV, RMSE_F=   58.08 meV / A
+2026-07-14 13:04:46.041 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-17.pt
+2026-07-14 13:04:46.092 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-18.pt
+2026-07-14 13:04:58.066 INFO: Epoch 19: head: Default, loss=0.03241210, RMSE_E_per_atom=   76.33 meV, RMSE_F=   55.02 meV / A
+2026-07-14 13:04:58.067 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-18.pt
+2026-07-14 13:04:58.095 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-19.pt
+2026-07-14 13:05:10.437 INFO: Epoch 20: head: Default, loss=0.03460828, RMSE_E_per_atom=   66.97 meV, RMSE_F=   56.82 meV / A
+2026-07-14 13:05:22.143 INFO: Epoch 21: head: Default, loss=0.03206111, RMSE_E_per_atom=   68.02 meV, RMSE_F=   54.93 meV / A
+2026-07-14 13:05:22.144 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-19.pt
+2026-07-14 13:05:22.292 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-21.pt
+2026-07-14 13:05:34.543 INFO: Epoch 22: head: Default, loss=0.02754873, RMSE_E_per_atom=   49.25 meV, RMSE_F=   51.19 meV / A
+2026-07-14 13:05:34.543 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-21.pt
+2026-07-14 13:05:34.683 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-22.pt
+2026-07-14 13:05:46.700 INFO: Epoch 23: head: Default, loss=0.02571414, RMSE_E_per_atom=   51.65 meV, RMSE_F=   49.16 meV / A
+2026-07-14 13:05:46.701 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-22.pt
+2026-07-14 13:05:46.859 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-23.pt
+2026-07-14 13:05:59.132 INFO: Epoch 24: head: Default, loss=0.02474554, RMSE_E_per_atom=   53.32 meV, RMSE_F=   48.33 meV / A
+2026-07-14 13:05:59.183 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-23.pt
+2026-07-14 13:05:59.322 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-24.pt
+2026-07-14 13:06:11.504 INFO: Epoch 25: head: Default, loss=0.02453717, RMSE_E_per_atom=   45.59 meV, RMSE_F=   48.04 meV / A
+2026-07-14 13:06:11.505 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-24.pt
+2026-07-14 13:06:11.526 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-25.pt
+2026-07-14 13:06:23.773 INFO: Epoch 26: head: Default, loss=0.02329669, RMSE_E_per_atom=   45.56 meV, RMSE_F=   46.94 meV / A
+2026-07-14 13:06:23.773 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-25.pt
+2026-07-14 13:06:23.797 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-26.pt
+2026-07-14 13:06:36.182 INFO: Epoch 27: head: Default, loss=0.02235984, RMSE_E_per_atom=   43.31 meV, RMSE_F=   45.95 meV / A
+2026-07-14 13:06:36.183 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-26.pt
+2026-07-14 13:06:36.208 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-27.pt
+2026-07-14 13:06:48.204 INFO: Epoch 28: head: Default, loss=0.02172617, RMSE_E_per_atom=   34.60 meV, RMSE_F=   45.34 meV / A
+2026-07-14 13:06:48.205 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-27.pt
+2026-07-14 13:06:48.366 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-28.pt
+2026-07-14 13:07:00.563 INFO: Epoch 29: head: Default, loss=0.01943049, RMSE_E_per_atom=   35.85 meV, RMSE_F=   42.87 meV / A
+2026-07-14 13:07:00.564 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-28.pt
+2026-07-14 13:07:00.586 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-29.pt
+2026-07-14 13:07:12.526 INFO: Epoch 30: head: Default, loss=0.01944501, RMSE_E_per_atom=   33.28 meV, RMSE_F=   42.93 meV / A
+2026-07-14 13:07:23.989 INFO: Epoch 31: head: Default, loss=0.02002035, RMSE_E_per_atom=   28.03 meV, RMSE_F=   43.68 meV / A
+2026-07-14 13:07:35.608 INFO: Epoch 32: head: Default, loss=0.01768916, RMSE_E_per_atom=   32.54 meV, RMSE_F=   40.95 meV / A
+2026-07-14 13:07:35.609 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-29.pt
+2026-07-14 13:07:35.636 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-32.pt
+2026-07-14 13:07:47.718 INFO: Epoch 33: head: Default, loss=0.01693745, RMSE_E_per_atom=   30.45 meV, RMSE_F=   40.04 meV / A
+2026-07-14 13:07:47.719 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-32.pt
+2026-07-14 13:07:47.860 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-33.pt
+2026-07-14 13:07:59.815 INFO: Epoch 34: head: Default, loss=0.01672162, RMSE_E_per_atom=   33.79 meV, RMSE_F=   39.83 meV / A
+2026-07-14 13:07:59.816 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-33.pt
+2026-07-14 13:07:59.837 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-34.pt
+2026-07-14 13:08:12.013 INFO: Epoch 35: head: Default, loss=0.01667395, RMSE_E_per_atom=   30.18 meV, RMSE_F=   39.72 meV / A
+2026-07-14 13:08:12.014 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-34.pt
+2026-07-14 13:08:12.151 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-35.pt
+2026-07-14 13:08:24.400 INFO: Epoch 36: head: Default, loss=0.01546041, RMSE_E_per_atom=   20.35 meV, RMSE_F=   38.38 meV / A
+2026-07-14 13:08:24.401 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-35.pt
+2026-07-14 13:08:24.422 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-36.pt
+2026-07-14 13:08:36.522 INFO: Epoch 37: head: Default, loss=0.01534973, RMSE_E_per_atom=   26.03 meV, RMSE_F=   38.16 meV / A
+2026-07-14 13:08:36.522 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-36.pt
+2026-07-14 13:08:36.541 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-37.pt
+2026-07-14 13:08:48.697 INFO: Epoch 38: head: Default, loss=0.01520413, RMSE_E_per_atom=   23.18 meV, RMSE_F=   38.02 meV / A
+2026-07-14 13:08:48.698 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-37.pt
+2026-07-14 13:08:48.722 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-38.pt
+2026-07-14 13:09:01.011 INFO: Epoch 39: head: Default, loss=0.01486111, RMSE_E_per_atom=   26.08 meV, RMSE_F=   37.54 meV / A
+2026-07-14 13:09:01.012 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-38.pt
+2026-07-14 13:09:01.036 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-39.pt
+2026-07-14 13:09:13.135 INFO: Epoch 40: head: Default, loss=0.01551897, RMSE_E_per_atom=   22.56 meV, RMSE_F=   38.34 meV / A
+2026-07-14 13:09:24.802 INFO: Epoch 41: head: Default, loss=0.01365679, RMSE_E_per_atom=   22.99 meV, RMSE_F=   36.02 meV / A
+2026-07-14 13:09:24.803 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-39.pt
+2026-07-14 13:09:24.825 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-41.pt
+2026-07-14 13:09:36.985 INFO: Epoch 42: head: Default, loss=0.01457057, RMSE_E_per_atom=   17.58 meV, RMSE_F=   37.22 meV / A
+2026-07-14 13:09:48.595 INFO: Epoch 43: head: Default, loss=0.01307193, RMSE_E_per_atom=   22.67 meV, RMSE_F=   35.23 meV / A
+2026-07-14 13:09:48.596 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-41.pt
+2026-07-14 13:09:48.646 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-43.pt
+2026-07-14 13:10:00.777 INFO: Epoch 44: head: Default, loss=0.01513780, RMSE_E_per_atom=   19.78 meV, RMSE_F=   37.84 meV / A
+2026-07-14 13:10:12.369 INFO: Epoch 45: head: Default, loss=0.01280139, RMSE_E_per_atom=   19.92 meV, RMSE_F=   34.87 meV / A
+2026-07-14 13:10:12.370 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-43.pt
+2026-07-14 13:10:12.392 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-45.pt
+2026-07-14 13:10:24.380 INFO: Epoch 46: head: Default, loss=0.01249246, RMSE_E_per_atom=   24.72 meV, RMSE_F=   34.47 meV / A
+2026-07-14 13:10:24.381 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-45.pt
+2026-07-14 13:10:24.422 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-46.pt
+2026-07-14 13:10:36.332 INFO: Epoch 47: head: Default, loss=0.01237274, RMSE_E_per_atom=   20.93 meV, RMSE_F=   34.33 meV / A
+2026-07-14 13:10:36.333 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-46.pt
+2026-07-14 13:10:36.356 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-47.pt
+2026-07-14 13:10:48.368 INFO: Epoch 48: head: Default, loss=0.01231270, RMSE_E_per_atom=   19.46 meV, RMSE_F=   34.26 meV / A
+2026-07-14 13:10:48.369 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-47.pt
+2026-07-14 13:10:48.390 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-48.pt
+2026-07-14 13:11:00.257 INFO: Epoch 49: head: Default, loss=0.01235716, RMSE_E_per_atom=   19.66 meV, RMSE_F=   34.28 meV / A
+2026-07-14 13:11:11.721 INFO: Epoch 50: head: Default, loss=0.01152435, RMSE_E_per_atom=   19.10 meV, RMSE_F=   33.14 meV / A
+2026-07-14 13:11:11.722 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-48.pt
+2026-07-14 13:11:11.743 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-50.pt
+2026-07-14 13:11:23.979 INFO: Epoch 51: head: Default, loss=0.01129737, RMSE_E_per_atom=   16.14 meV, RMSE_F=   32.81 meV / A
+2026-07-14 13:11:23.980 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-50.pt
+2026-07-14 13:11:24.026 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-51.pt
+2026-07-14 13:11:36.191 INFO: Epoch 52: head: Default, loss=0.01175912, RMSE_E_per_atom=   17.36 meV, RMSE_F=   33.39 meV / A
+2026-07-14 13:11:47.806 INFO: Epoch 53: head: Default, loss=0.01096843, RMSE_E_per_atom=   16.57 meV, RMSE_F=   32.37 meV / A
+2026-07-14 13:11:47.807 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-51.pt
+2026-07-14 13:11:47.827 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-53.pt
+2026-07-14 13:12:00.016 INFO: Epoch 54: head: Default, loss=0.01144482, RMSE_E_per_atom=   15.54 meV, RMSE_F=   33.01 meV / A
+2026-07-14 13:12:11.741 INFO: Epoch 55: head: Default, loss=0.01068782, RMSE_E_per_atom=   14.42 meV, RMSE_F=   31.93 meV / A
+2026-07-14 13:12:11.742 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-53.pt
+2026-07-14 13:12:11.867 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-55.pt
+2026-07-14 13:12:23.958 INFO: Epoch 56: head: Default, loss=0.01034052, RMSE_E_per_atom=   13.34 meV, RMSE_F=   31.43 meV / A
+2026-07-14 13:12:23.958 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-55.pt
+2026-07-14 13:12:23.979 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-56.pt
+2026-07-14 13:12:35.943 INFO: Epoch 57: head: Default, loss=0.01060549, RMSE_E_per_atom=   15.77 meV, RMSE_F=   31.79 meV / A
+2026-07-14 13:12:47.530 INFO: Epoch 58: head: Default, loss=0.01037087, RMSE_E_per_atom=   13.11 meV, RMSE_F=   31.44 meV / A
+2026-07-14 13:12:59.142 INFO: Epoch 59: head: Default, loss=0.01171857, RMSE_E_per_atom=   15.66 meV, RMSE_F=   33.21 meV / A
+2026-07-14 13:13:10.643 INFO: Epoch 60: head: Default, loss=0.01013292, RMSE_E_per_atom=   11.87 meV, RMSE_F=   31.04 meV / A
+2026-07-14 13:13:10.644 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-56.pt
+2026-07-14 13:13:10.775 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-60.pt
+2026-07-14 13:13:22.844 INFO: Epoch 61: head: Default, loss=0.00988424, RMSE_E_per_atom=   16.85 meV, RMSE_F=   30.74 meV / A
+2026-07-14 13:13:22.845 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-60.pt
+2026-07-14 13:13:22.870 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-61.pt
+2026-07-14 13:13:34.823 INFO: Epoch 62: head: Default, loss=0.00981106, RMSE_E_per_atom=   14.98 meV, RMSE_F=   30.54 meV / A
+2026-07-14 13:13:34.843 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-61.pt
+2026-07-14 13:13:34.866 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-62.pt
+2026-07-14 13:13:46.821 INFO: Epoch 63: head: Default, loss=0.00991007, RMSE_E_per_atom=   11.38 meV, RMSE_F=   30.71 meV / A
+2026-07-14 13:13:58.557 INFO: Epoch 64: head: Default, loss=0.01116554, RMSE_E_per_atom=   15.61 meV, RMSE_F=   32.64 meV / A
+2026-07-14 13:14:10.185 INFO: Epoch 65: head: Default, loss=0.00948619, RMSE_E_per_atom=    9.91 meV, RMSE_F=   30.03 meV / A
+2026-07-14 13:14:10.185 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-62.pt
+2026-07-14 13:14:10.202 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-65.pt
+2026-07-14 13:14:22.218 INFO: Epoch 66: head: Default, loss=0.00919887, RMSE_E_per_atom=    6.42 meV, RMSE_F=   29.64 meV / A
+2026-07-14 13:14:22.219 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-65.pt
+2026-07-14 13:14:22.235 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-66.pt
+2026-07-14 13:14:34.205 INFO: Epoch 67: head: Default, loss=0.00904356, RMSE_E_per_atom=   11.03 meV, RMSE_F=   29.42 meV / A
+2026-07-14 13:14:34.206 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-66.pt
+2026-07-14 13:14:34.233 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-67.pt
+2026-07-14 13:14:46.279 INFO: Epoch 68: head: Default, loss=0.00942443, RMSE_E_per_atom=   11.57 meV, RMSE_F=   29.98 meV / A
+2026-07-14 13:14:57.972 INFO: Epoch 69: head: Default, loss=0.00940722, RMSE_E_per_atom=   14.55 meV, RMSE_F=   29.85 meV / A
+2026-07-14 13:15:09.600 INFO: Epoch 70: head: Default, loss=0.00890129, RMSE_E_per_atom=   10.28 meV, RMSE_F=   29.08 meV / A
+2026-07-14 13:15:09.600 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-67.pt
+2026-07-14 13:15:09.631 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-70.pt
+2026-07-14 13:15:21.642 INFO: Epoch 71: head: Default, loss=0.00844160, RMSE_E_per_atom=    9.04 meV, RMSE_F=   28.38 meV / A
+2026-07-14 13:15:21.643 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-70.pt
+2026-07-14 13:15:21.664 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-71.pt
+2026-07-14 13:15:33.784 INFO: Epoch 72: head: Default, loss=0.00868758, RMSE_E_per_atom=    8.75 meV, RMSE_F=   28.83 meV / A
+2026-07-14 13:15:45.270 INFO: Epoch 73: head: Default, loss=0.00881088, RMSE_E_per_atom=    9.60 meV, RMSE_F=   29.00 meV / A
+2026-07-14 13:15:56.953 INFO: Epoch 74: head: Default, loss=0.00860009, RMSE_E_per_atom=    9.03 meV, RMSE_F=   28.63 meV / A
+2026-07-14 13:16:08.556 INFO: Epoch 75: head: Default, loss=0.00846718, RMSE_E_per_atom=   13.48 meV, RMSE_F=   28.44 meV / A
+2026-07-14 13:16:20.027 INFO: Epoch 76: head: Default, loss=0.00828482, RMSE_E_per_atom=    9.93 meV, RMSE_F=   28.15 meV / A
+2026-07-14 13:16:20.028 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-71.pt
+2026-07-14 13:16:20.050 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-76.pt
+2026-07-14 13:16:31.940 INFO: Epoch 77: head: Default, loss=0.00821628, RMSE_E_per_atom=    9.60 meV, RMSE_F=   28.04 meV / A
+2026-07-14 13:16:31.940 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-76.pt
+2026-07-14 13:16:31.959 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-77.pt
+2026-07-14 13:16:44.197 INFO: Epoch 78: head: Default, loss=0.00814372, RMSE_E_per_atom=    7.44 meV, RMSE_F=   27.95 meV / A
+2026-07-14 13:16:44.198 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-77.pt
+2026-07-14 13:16:44.338 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-78.pt
+2026-07-14 13:16:56.428 INFO: Epoch 79: head: Default, loss=0.00803464, RMSE_E_per_atom=   13.54 meV, RMSE_F=   27.66 meV / A
+2026-07-14 13:16:56.429 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-78.pt
+2026-07-14 13:16:56.450 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-79.pt
+2026-07-14 13:17:08.432 INFO: Epoch 80: head: Default, loss=0.00838033, RMSE_E_per_atom=    8.71 meV, RMSE_F=   28.32 meV / A
+2026-07-14 13:17:19.978 INFO: Epoch 81: head: Default, loss=0.00793757, RMSE_E_per_atom=    9.41 meV, RMSE_F=   27.52 meV / A
+2026-07-14 13:17:19.979 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-79.pt
+2026-07-14 13:17:19.995 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-81.pt
+2026-07-14 13:17:31.988 INFO: Epoch 82: head: Default, loss=0.00773672, RMSE_E_per_atom=   10.51 meV, RMSE_F=   27.16 meV / A
+2026-07-14 13:17:31.989 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-81.pt
+2026-07-14 13:17:32.151 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-82.pt
+2026-07-14 13:17:44.130 INFO: Epoch 83: head: Default, loss=0.00783024, RMSE_E_per_atom=   12.31 meV, RMSE_F=   27.32 meV / A
+2026-07-14 13:17:55.722 INFO: Epoch 84: head: Default, loss=0.00758368, RMSE_E_per_atom=    9.96 meV, RMSE_F=   26.92 meV / A
+2026-07-14 13:17:55.723 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-82.pt
+2026-07-14 13:17:55.752 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-84.pt
+2026-07-14 13:18:07.754 INFO: Epoch 85: head: Default, loss=0.00831072, RMSE_E_per_atom=   11.80 meV, RMSE_F=   28.13 meV / A
+2026-07-14 13:18:19.351 INFO: Epoch 86: head: Default, loss=0.00771202, RMSE_E_per_atom=   11.58 meV, RMSE_F=   27.15 meV / A
+2026-07-14 13:18:30.980 INFO: Epoch 87: head: Default, loss=0.00736328, RMSE_E_per_atom=    7.87 meV, RMSE_F=   26.48 meV / A
+2026-07-14 13:18:30.981 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-84.pt
+2026-07-14 13:18:31.107 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-87.pt
+2026-07-14 13:18:43.159 INFO: Epoch 88: head: Default, loss=0.00749395, RMSE_E_per_atom=   10.34 meV, RMSE_F=   26.78 meV / A
+2026-07-14 13:18:54.665 INFO: Epoch 89: head: Default, loss=0.00719174, RMSE_E_per_atom=    6.10 meV, RMSE_F=   26.25 meV / A
+2026-07-14 13:18:54.666 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-87.pt
+2026-07-14 13:18:54.687 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-89.pt
+2026-07-14 13:19:06.882 INFO: Epoch 90: head: Default, loss=0.00782917, RMSE_E_per_atom=    7.94 meV, RMSE_F=   27.23 meV / A
+2026-07-14 13:19:18.481 INFO: Epoch 91: head: Default, loss=0.00708750, RMSE_E_per_atom=    6.85 meV, RMSE_F=   26.07 meV / A
+2026-07-14 13:19:18.482 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-89.pt
+2026-07-14 13:19:18.508 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-91.pt
+2026-07-14 13:19:30.465 INFO: Epoch 92: head: Default, loss=0.00708352, RMSE_E_per_atom=    7.22 meV, RMSE_F=   26.04 meV / A
+2026-07-14 13:19:30.466 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-91.pt
+2026-07-14 13:19:30.508 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-92.pt
+2026-07-14 13:19:42.721 INFO: Epoch 93: head: Default, loss=0.00731631, RMSE_E_per_atom=    9.08 meV, RMSE_F=   26.52 meV / A
+2026-07-14 13:19:54.271 INFO: Epoch 94: head: Default, loss=0.00737809, RMSE_E_per_atom=    6.31 meV, RMSE_F=   26.57 meV / A
+2026-07-14 13:20:05.863 INFO: Epoch 95: head: Default, loss=0.00700723, RMSE_E_per_atom=    7.84 meV, RMSE_F=   25.90 meV / A
+2026-07-14 13:20:05.864 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-92.pt
+2026-07-14 13:20:05.888 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-95.pt
+2026-07-14 13:20:17.887 INFO: Epoch 96: head: Default, loss=0.00698684, RMSE_E_per_atom=    7.89 meV, RMSE_F=   25.90 meV / A
+2026-07-14 13:20:17.888 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-95.pt
+2026-07-14 13:20:17.912 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-96.pt
+2026-07-14 13:20:29.771 INFO: Epoch 97: head: Default, loss=0.00700665, RMSE_E_per_atom=    8.96 meV, RMSE_F=   25.88 meV / A
+2026-07-14 13:20:41.247 INFO: Epoch 98: head: Default, loss=0.00737846, RMSE_E_per_atom=    8.28 meV, RMSE_F=   26.66 meV / A
+2026-07-14 13:20:53.024 INFO: Epoch 99: head: Default, loss=0.00738687, RMSE_E_per_atom=    6.91 meV, RMSE_F=   26.49 meV / A
+2026-07-14 13:20:53.024 INFO: Training complete
+2026-07-14 13:20:53.024 INFO: 
+2026-07-14 13:20:53.024 INFO: ===========RESULTS===========
+2026-07-14 13:20:53.026 INFO: Loading checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123_epoch-96.pt
+2026-07-14 13:20:53.066 INFO: Loaded Stage one model from epoch 96 for evaluation
+2026-07-14 13:20:53.066 INFO: Saving model to /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints/pentacene_finetune_v1_run-123.model
+2026-07-14 13:20:53.715 INFO: Compiling model, saving metadata to /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/pentacene_finetune_v1_compiled.model
+2026-07-14 13:20:54.954 INFO: Computing metrics for training, validation, and test sets
+2026-07-14 13:20:54.955 INFO: Skipping evaluation for heads: ['pt_head']
+2026-07-14 13:20:54.956 INFO: Evaluating train_Default ...
+2026-07-14 13:20:59.757 INFO: Evaluating valid_Default ...
+2026-07-14 13:21:00.658 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % |
++---------------+---------------------+------------------+-------------------+
+| train_Default |            7.9      |         23.2     |          1.43     |
+| valid_Default |            7.9      |         25.9     |          1.72     |
++---------------+---------------------+------------------+-------------------+
+2026-07-14 13:21:00.659 DEBUG: Running inference on train_Default dataset
+2026-07-14 13:21:05.388 DEBUG: Running inference on valid_Default dataset
+2026-07-14 13:21:08.694 INFO: Done

@@ -185,3 +185,76 @@ Relative F RMSE: 1.76 %
 - To compare both models from scratch and finetuning, used the following scripts `model_comparison_config.yaml` and `scripts/compare_modela.py`
 ran this and results are saved in `/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/model_comparison` --> both models are trained well.
 important point here: since finetuning was done on GPUs, so for comparing the above models, login interactively on GPU node and then run the comparison script, otherwise will get runtime error
+
+## Step 5 is: Committee wrapper for uncertainity quantification
+so what is being done here and why do we do it?
+what the committee does?
+- train several MACE models (scratch, finetune, different random seeds) that all try to learn the same thing (energies and forces), but they differ slightly (scratch vs fine-tuned, different seeds, etc.).
+
+- For any given structure, ask all of them: “What are the energy and forces?”
+
+- If they all agree closely, the standard deviation (spread) of their predictions is small → the model family is confident there.
+
+- If they disagree a lot, the standard deviation is large → the model family is uncertain there.
+so the committee's job is:
+"Take multiple models’ predictions and turn their disagreement into a number that you treat as “uncertainty” for each structure."
+
+Next how active learning uses that uncertainity?
+- Active learning does not try to “push the model toward certainty” in a blind, global way.
+
+- Instead, it uses uncertainty to choose the most informative structures to label next.
+
+You run your committee on many candidate GB structures.
+
+For each structure, you compute the standard deviation of the committee’s predictions → uncertainty.
+
+You select the structures with the highest uncertainty (where the models disagree most).
+
+You label those few structures with expensive xTB.
+
+You retrain your models on the enlarged dataset.
+
+After this, the committee will usually become more certain specifically on those previously confusing regions of configuration space. So the goal of active learning is:
+`Use uncertainty to decide where to spend labeling effort so the model becomes accurate in the places that matter most (like real grain boundaries), instead of wasting labels on already easy structures.`
+
+what is high-uncertainity and low-uncertainity data?
+
+-- High-uncertainty structures are those that are underrepresented or very different from your training data, so the committee models disagree there.
+
+        These will often be GB/interface structures (weird packing, large distortions, unusual separations/rotations), especially early in the project, because your seed dataset is mostly neat dimers.
+
+-- Low-uncertainty structures are those that are similar to what you’ve already labeled and trained on, so the committee members make similar predictions.
+
+        These will typically look like your original dimers and “normal” stacking motifs, or regions of GBs that resemble those.
+
+So the key is:
+
+    “High uncertainty” is defined by model disagreement relative to the training data, not just by the physical label “GB” vs “grain interior”.
+
+Your active learning goal is to make the model confident on GB structures by repeatedly targeting high‑uncertainty GB configurations for new xTB labels.
+
+so finally in order to write in the project: “Implemented a four-member committee (scratch + foundation fine-tune + seed variants) for uncertainty-aware active learning of grain-boundary structures.”
+
+so the four-models that I will be having is:
+Model 1: scratch_v1 (existing).
+
+Model 2: finetune_v1_seed42 (existing).
+
+Model 3: finetune_v1_seed99 (new).
+
+Model 4: finetune_v1_seed123 (new).
+
+- so for model 3, 4: just change the output paths and seed number in the scripts and config file used for model2.
+
+So after this training will be done then the committee wrapper will calculate the mean energies, forces, std deviation in energy and forces per dimer structures across 4 models.
+then in next step for active learning we could select the ones with highest uncertainity to be feed for expensive xTB labeling.
+
+- after training model 3 and 4, generated the following files:
+configs/committee_config.yaml --> config file with all the models
+committee/committee.py --> wrapper for loading committee class and __init__.py to make it a package
+scripts/run_committee_on_xyz.py --> scripts for running comittee on the valid.xyz dataset.
+ran this in interactive session on gtx08, because it has CUDA
+
+then it saves mean energy and std dev. in energy across 45 structures over the four models. the deviation seemed to be quite small and same which shows that on this small seed dimers the uncertainity is low.
+
+This json file, does save the forces mean and std. deviation, but that could be done as well easily.

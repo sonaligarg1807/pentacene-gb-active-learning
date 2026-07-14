@@ -3,7 +3,7 @@
 # GB seed dataset, instead of training from scratch.
 
 name: "pentacene_finetune_v1"
-seed: 42
+seed: 123
 
 train_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz"
 valid_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
@@ -24,9 +24,9 @@ weight_decay: 5e-7
 energy_weight: 1.0
 forces_weight: 100.0
 
-model_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1"
-log_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1/logs"
-checkpoints_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1/checkpoints"
+model_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123"
+log_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/logs"
+checkpoints_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1_seed123/checkpoints"
 
 device: "cuda"
 multiheads_finetuning: false
