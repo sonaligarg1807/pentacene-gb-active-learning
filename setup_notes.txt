@@ -264,6 +264,13 @@ This json file, does save the forces mean and std. deviation, but that could be 
 - Took a90, b45, nac60, nbc75: sampled GB dimers as I used for NN_setup
 - config/gb_dimer_extraction_config.yaml --> config file for generating data from gb_dimers
 - scripts/extract_gb_dimers.py --> wrapper script for running this config file
+- this data is unlabeled and contains only coordinates of dimers and no ref energy or forces which is sufficient to run the committee wrapper
 
 ran this step on hydrogen because the data was present there. on hydrogen did installed mace and other setup because it doesn't have GPUs. so further training will be done on TCB
+
+- next running scripts/run_committee_on_xyz.py instead of running on full dataset of gb_dimers which is quite big, 
+resampled a subset of random frames from a90_gb_dimer.xyz using seed=42, by running scripts/subset_xyz.py
+- then login to interactive GPU session
+- updated `run_committee_on_xyz.py` to also calculate mean_forces and mean_std_forces
+- run_committee_on_xyz.py : on subset of 500frames and save results to json file under output/committee_v1
 

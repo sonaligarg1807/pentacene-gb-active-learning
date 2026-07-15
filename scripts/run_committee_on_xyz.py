@@ -11,6 +11,7 @@ HOW TO RUN:
 import sys
 import json
 from pathlib import Path
+import numpy as np
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(REPO_ROOT))
@@ -46,13 +47,20 @@ def main():
     results = []
     for i, atoms in enumerate(atoms_list):
         res = committee.predict_single(atoms)
+
+        mean_forces = res["mean_forces"]  # shape: (n_atoms, 3)
+        std_forces = res["std_forces"]    # shape: (n_atoms, 3)
+
+        mean_force = float(np.mean(np.abs(mean_forces)))
+        mean_std_force = float(np.mean(std_forces))
+
         results.append({
             "index": i,
             "mean_energy": float(res["mean_energy"]),
             "std_energy": float(res["std_energy"]),
-            # You can later add force statistics here if needed
+            "mean_force": mean_force,
+            "mean_std_force": mean_std_force,
         })
-
     # 4. Save results
     output_json.parent.mkdir(parents=True, exist_ok=True)
     with open(output_json, "w") as f:
