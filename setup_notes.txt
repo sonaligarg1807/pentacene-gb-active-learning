@@ -261,3 +261,9 @@ This json file, does save the forces mean and std. deviation, but that could be 
 
 
 ## step6: running the committee on my GB structures to test how much certainity it would give on new structures. once this will be done, only then we could do new MD to sample higher region subspace.
+- Took a90, b45, nac60, nbc75: sampled GB dimers as I used for NN_setup
+- config/gb_dimer_extraction_config.yaml --> config file for generating data from gb_dimers
+- scripts/extract_gb_dimers.py --> wrapper script for running this config file
+
+ran this step on hydrogen because the data was present there. on hydrogen did installed mace and other setup because it doesn't have GPUs. so further training will be done on TCB
+
