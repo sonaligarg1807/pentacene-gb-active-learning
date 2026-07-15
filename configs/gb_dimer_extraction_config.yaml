@@ -1,0 +1,39 @@
+# configs/gb_dimer_extraction_config.yaml
+# Extracts GB-region dimer structures from equilibrated GROMACS
+# bicrystal trajectories, using resid pairs from dimer.ndx files.
+# Each (frame, dimer) combination is written as one frame in a
+# per-system output .xyz file, for later evaluation by the committee.
+
+stride: 4  # use every Nth frame from the .xtc (decorrelation)
+
+systems:
+  - name: "a90"
+    tpr_file: "/data/sgarg/NN_GB/FMO-DFTB1_data/a90/input_files/traj.tpr"
+    xtc_file: "/data/sgarg/NN_GB/FMO-DFTB1_data/a90/input_files/traj_mol.trr"
+    ndx_file: "/data/sgarg/NN_GB/FMO-DFTB1_data/a90/input_files/dimer_index_pairs.ndx"
+    output_xyz: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/a90_gb_dimers.xyz"
+
+  - name: "b45"
+    tpr_file: "/data/sgarg/NN_GB/FMO-DFTB1_data/b45/input_files/traj.tpr"
+    xtc_file: "/data/sgarg/NN_GB/FMO-DFTB1_data/b45/input_files/trajmol.xtc"
+    ndx_file: "/data/sgarg/NN_GB/FMO-DFTB1_data/b45/input_files/dimer_index_pairs.ndx"
+    output_xyz: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/b45_gb_dimers.xyz"
+
+  - name: "nac60"
+    tpr_file: "/path/to/nac60/topol.tpr"
+    xtc_file: "/path/to/nac60/traj.xtc"
+    ndx_file: "/data/sgarg/NN_GB/FMO-DFTB1_data/nac60/input_files/dimer_pairs_sampled.ndx"
+    output_xyz: "/path/to/output/gb_dimers/nac60_gb_dimers.xyz"
+
+  - name: "nbc75"
+    tpr_file: "/path/to/nbc75/topol.tpr"
+    xtc_file: "/path/to/nbc75/traj.xtc"
+    ndx_file: "/path/to/nbc75/dimer.ndx"
+    output_xyz: "/path/to/output/gb_dimers/nbc75_gb_dimers.xyz"
+
+  # Add more systems here following the same pattern
+  # - name: "..."
+  #   tpr_file: "..."
+  #   xtc_file: "..."
+  #   ndx_file: "..."
+  #   output_xyz: "..."

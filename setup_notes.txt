@@ -258,3 +258,6 @@ ran this in interactive session on gtx08, because it has CUDA
 then it saves mean energy and std dev. in energy across 45 structures over the four models. the deviation seemed to be quite small and same which shows that on this small seed dimers the uncertainity is low.
 
 This json file, does save the forces mean and std. deviation, but that could be done as well easily.
+
+
+## step6: running the committee on my GB structures to test how much certainity it would give on new structures. once this will be done, only then we could do new MD to sample higher region subspace.
