@@ -1,0 +1,29 @@
+# configs/xTB_selection_config.yaml
+# Selects the top-percentile most force-uncertain GB dimer structures
+# (based on committee mean_std_force) from each system's subset,
+# for xTB labeling.
+
+top_percentile: 0.20  # top 20% most uncertain structures per system
+
+systems:
+  - name: "a90"
+    stats_json: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/committee_v1/a90_gb_subset500_stats.json"
+    xyz_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/a90_gb_dimers_subset500.xyz"
+    output_xyz: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/selected_for_xtb/a90_top20pct.xyz"
+
+  - name: "b45"
+    stats_json: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/committee_v1/b45_gb_subset500_stats.json"
+    xyz_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/b45_gb_dimers_subset500.xyz"
+    output_xyz: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/selected_for_xtb/b45_top20pct.xyz"
+
+  - name: "nac60"
+    stats_json: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/committee_v1/nac60_gb_subset500_stats.json"
+    xyz_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/nac60_gb_dimers_subset500.xyz"
+    output_xyz: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/selected_for_xtb/nac60_top20pct.xyz"
+
+  - name: "nbc75"
+    stats_json: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/committee_v1/nbc75_gb_subset500_stats.json"
+    xyz_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/nbc75_gb_dimers_subset500.xyz"
+    output_xyz: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/selected_for_xtb/nbc75_top20pct.xyz"
+
+combined_output_xyz: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/selected_for_xtb/all_top20pct_combined.xyz"
