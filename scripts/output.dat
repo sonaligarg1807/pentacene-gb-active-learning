@@ -1,0 +1,2 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+Wrote committee results for 500 structures to /home/sgarg/git-repo/pentacene-gb-active-learning/output/committee_v1/nbc75_gb_subset500_stats.json

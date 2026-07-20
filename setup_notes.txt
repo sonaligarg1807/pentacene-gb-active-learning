@@ -274,3 +274,60 @@ resampled a subset of random frames from a90_gb_dimer.xyz using seed=42, by runn
 - updated `run_committee_on_xyz.py` to also calculate mean_forces and mean_std_forces
 - run_committee_on_xyz.py : on subset of 500frames and save results to json file under output/committee_v1
 
+- analysed the results of this 500subset run in notebooks/analysis.ipynb
+following is what it infers:
+Energy uncertainity (std_energy) violin plot:
+- Valid dimers cluster tightly around ~0.27, narrow spread (0.21–0.30).
+
+- GB dimers have a similar median (~0.26) but a much wider spread, stretching down to ~0.17 and up to ~0.36.
+
+- So on average, energy uncertainty looks similar, but GB dimers include both less and more uncertain cases than anything in your valid set — the committee isn't uniformly more uncertain on GB, but it's less consistent.
+
+Force uncertainty (mean_std_force) violin plot — this is the most informative one:
+
+  - Valid dimers: tightly packed near ~0.005, with the whole distribution below ~0.026.
+
+  - GB dimers: clearly shifted higher, sitting around ~0.0135 median, entirely above ~0.010 minimum.
+
+  - This is a real, visually obvious separation — GB dimers are consistently more force-uncertain than valid dimers, even though energy uncertainty looked deceptively similar. This confirms your earlier hypothesis that forces are more sensitive than energy to structural novelty.
+
+Scatter (mean_energy vs std_energy):
+
+  - Valid points span a wider energy range (~-2953 to ~-2941) but stay in a moderate, consistent uncertainty band.
+
+  - GB points cluster in a narrower energy range (~-2951 to ~-2947) but show more scatter in uncertainty (both very low and the two highest points overall, up to ~0.36).
+
+  - This suggests GB dimers are structurally more homogeneous in raw energy (similar local environments) but the committee's confidence in them varies more, i.e., some specific dimers are genuinely novel/uncertain while others aren't.
+
+Force disagreement, not energy disagreement, is the better active-learning signal here. Energy uncertainty alone would have missed the real difference between valid and GB dimers; mean_std_force clearly separates the two populations, meaning your active learning selection criterion (Step 6c) should prioritize force-based uncertainty over energy-based uncertainty.
+
+- saved results in /output/committee_v1/comparison_valid_a90
+
+- so far, it is found that for a90, the forces are more uncertain than energies. so next step is instead of running this uncertainity on all the GB dimers, we find out whether low angle gb also shows similar uncertinity behaviour in forces or is it just some high angle GBs.
+
+- so we do this for other b45, nac60, nbc75 structures as well (subset → stats → violin plots)
+- then we will decide if this is something across all dimers or just some specific orientations
+- running via submission script : `finetune_tcb.sge`
+
+- so the above committee run against valid.xyz for all 4 GB systems give more or less similar results with forces being more uncertain than energies
+
+| System | Valid median (mean_std_force) | GB median (mean_std_force) | Separation                     |
+| ------ | ----------------------------- | -------------------------- | ------------------------------ |
+| a90    | ~0.0055                       | ~0.0138                    | Clear, no overlap in main body |
+| b45    | ~0.0055                       | ~0.0138                    | Clear, nearly identical to a90 |
+| nac60  | ~0.0055                       | ~0.0140                    | Clear, nearly identical        |
+| nbc75  | ~0.0055                       | ~0.0140                    | Clear, nearly identical        |
+
+All four rotation axes/angles show essentially the same elevated force uncertainty (~2.5x higher median than valid), with GB distributions consistently sitting above the valid distribution's main body, regardless of axis (a, b, nac, nbc) or angle (45°, 60°, 75°, 90°).
+
+Energy uncertainty, on the other hand, again shows the same pattern as before in every system: similar median to valid, but a much wider spread (both lower and higher tails) — confirming energy alone is not a reliable indicator, while force uncertainty is remarkably stable and reproducible as a signal.
+
+Why this matters
+This is a strong, generalizable result, not a fluke of one geometry:
+
+The committee is systematically more uncertain about forces on GB structures, regardless of misorientation axis or angle.
+
+This means you can likely define a single, global force-uncertainty threshold (e.g., based on the valid set's maximum, ~0.026) for active learning selection, rather than needing per-system-type thresholds.
+
+This is genuinely a nice, well-supported finding for your write-up: "committee force disagreement, not energy disagreement, robustly separates real GB structures from training-like dimers across all tested misorientations."
+

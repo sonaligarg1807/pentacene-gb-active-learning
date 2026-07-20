@@ -1,0 +1,71 @@
+'.' -> '/scratch/sgarg/MACE_290714/repo'
+'./checkpoint_ro_model.py' -> '/scratch/sgarg/MACE_290714/repo/checkpoint_ro_model.py'
+'./eval_converted_model.py' -> '/scratch/sgarg/MACE_290714/repo/eval_converted_model.py'
+'./compare_models.py' -> '/scratch/sgarg/MACE_290714/repo/compare_models.py'
+'./mace-finetune.o290714' -> '/scratch/sgarg/MACE_290714/repo/mace-finetune.o290714'
+'./mace-finetune.e290714' -> '/scratch/sgarg/MACE_290714/repo/mace-finetune.e290714'
+'./job_info' -> '/scratch/sgarg/MACE_290714/repo/job_info'
+'./subset_xyz.py' -> '/scratch/sgarg/MACE_290714/repo/subset_xyz.py'
+'./extract_gb_dimers.py' -> '/scratch/sgarg/MACE_290714/repo/extract_gb_dimers.py'
+'./compute_atomic_energies.py' -> '/scratch/sgarg/MACE_290714/repo/compute_atomic_energies.py'
+'./finetune_justus2.slurm' -> '/scratch/sgarg/MACE_290714/repo/finetune_justus2.slurm'
+'./generate_seed_dimers.py' -> '/scratch/sgarg/MACE_290714/repo/generate_seed_dimers.py'
+'./label_seed_dimers.py' -> '/scratch/sgarg/MACE_290714/repo/label_seed_dimers.py'
+'./rename_keys.py' -> '/scratch/sgarg/MACE_290714/repo/rename_keys.py'
+'./split_dataset.py' -> '/scratch/sgarg/MACE_290714/repo/split_dataset.py'
+'./test_setup.py' -> '/scratch/sgarg/MACE_290714/repo/test_setup.py'
+'./train_finetune_model.py' -> '/scratch/sgarg/MACE_290714/repo/train_finetune_model.py'
+'./train_scratch_model.py' -> '/scratch/sgarg/MACE_290714/repo/train_scratch_model.py'
+'./finetune_tcb.sge' -> '/scratch/sgarg/MACE_290714/repo/finetune_tcb.sge'
+'./run_committee_on_xyz.py' -> '/scratch/sgarg/MACE_290714/repo/run_committee_on_xyz.py'
+Conda environment:
+/home/sgarg/miniconda3/envs/pentacene-al/bin/python
+Python 3.10.20
+Host information:
+gtx04
+QUEUE=gtx04d
+Selected gpu_id=3
+OMP_NUM_THREADS=10
+Checking GPU availability:
+/bin/nvidia-smi
+Mon Jul 20 18:17:39 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.65.06              Driver Version: 580.65.06      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:3B:00.0 Off |                  N/A |
+| 51%   84C    P2            143W /  250W |     255MiB /  11264MiB |     65%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:5E:00.0 Off |                  N/A |
+| 52%   84C    P2            250W /  250W |     243MiB /  11264MiB |     87%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:86:00.0 Off |                  N/A |
+| 67%   86C    P2            179W /  250W |     243MiB /  11264MiB |     98%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA GeForce GTX 1080 Ti     On  |   00000000:AF:00.0 Off |                  N/A |
+| 23%   21C    P8              8W /  250W |       5MiB /  11264MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         3437628      C   gmx                                     250MiB |
+|    1   N/A  N/A         3439244      C   gmx                                     238MiB |
+|    2   N/A  N/A         3439505      C   gmx                                     238MiB |
++-----------------------------------------------------------------------------------------+
+Checking PyTorch GPU visibility:
+Torch version: 2.7.1+cu118
+Torch CUDA version: 11.8
+CUDA available: True
+CUDA device count: 4
+Arch list: ['sm_50', 'sm_60', 'sm_70', 'sm_75', 'sm_80', 'sm_86', 'sm_37', 'sm_90']
+Device: NVIDIA GeForce GTX 1080 Ti
