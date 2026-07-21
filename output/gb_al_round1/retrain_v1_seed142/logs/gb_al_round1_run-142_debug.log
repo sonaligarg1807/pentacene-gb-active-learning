@@ -136,3 +136,39 @@
 2026-07-21 12:21:18.012 INFO: Epoch 46: head: Default, loss=0.00498916, RMSE_E_per_atom=    6.02 meV, RMSE_F=   21.83 meV / A
 2026-07-21 12:21:35.987 INFO: Epoch 47: head: Default, loss=0.00473737, RMSE_E_per_atom=    5.06 meV, RMSE_F=   21.33 meV / A
 2026-07-21 12:21:53.953 INFO: Epoch 48: head: Default, loss=0.00588035, RMSE_E_per_atom=    3.89 meV, RMSE_F=   23.67 meV / A
+2026-07-21 12:22:11.848 INFO: Epoch 49: head: Default, loss=0.00500690, RMSE_E_per_atom=    3.41 meV, RMSE_F=   21.97 meV / A
+2026-07-21 12:22:29.791 INFO: Epoch 50: head: Default, loss=0.00447927, RMSE_E_per_atom=    3.26 meV, RMSE_F=   20.71 meV / A
+2026-07-21 12:22:29.792 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed142/checkpoints/gb_al_round1_run-142_epoch-45.pt
+2026-07-21 12:22:29.814 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed142/checkpoints/gb_al_round1_run-142_epoch-50.pt
+2026-07-21 12:22:48.182 INFO: Epoch 51: head: Default, loss=0.00483188, RMSE_E_per_atom=    3.38 meV, RMSE_F=   21.50 meV / A
+2026-07-21 12:23:06.058 INFO: Epoch 52: head: Default, loss=0.00461803, RMSE_E_per_atom=    4.51 meV, RMSE_F=   21.00 meV / A
+2026-07-21 12:23:23.873 INFO: Epoch 53: head: Default, loss=0.00558747, RMSE_E_per_atom=    1.29 meV, RMSE_F=   23.12 meV / A
+2026-07-21 12:23:41.780 INFO: Epoch 54: head: Default, loss=0.00463039, RMSE_E_per_atom=    1.75 meV, RMSE_F=   21.07 meV / A
+2026-07-21 12:23:59.721 INFO: Epoch 55: head: Default, loss=0.00455328, RMSE_E_per_atom=    5.11 meV, RMSE_F=   20.87 meV / A
+2026-07-21 12:24:17.552 INFO: Epoch 56: head: Default, loss=0.00445531, RMSE_E_per_atom=    5.94 meV, RMSE_F=   20.69 meV / A
+2026-07-21 12:24:17.553 DEBUG: Deleting old checkpoint file: /home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed142/checkpoints/gb_al_round1_run-142_epoch-50.pt
+2026-07-21 12:24:17.711 DEBUG: Saving checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed142/checkpoints/gb_al_round1_run-142_epoch-56.pt
+2026-07-21 12:24:36.051 INFO: Epoch 57: head: Default, loss=0.00582966, RMSE_E_per_atom=    5.66 meV, RMSE_F=   23.61 meV / A
+2026-07-21 12:24:53.873 INFO: Epoch 58: head: Default, loss=0.00480762, RMSE_E_per_atom=    2.80 meV, RMSE_F=   21.47 meV / A
+2026-07-21 12:25:11.699 INFO: Epoch 59: head: Default, loss=0.00474701, RMSE_E_per_atom=    5.80 meV, RMSE_F=   21.28 meV / A
+2026-07-21 12:25:11.699 INFO: Training complete
+2026-07-21 12:25:11.699 INFO: 
+2026-07-21 12:25:11.699 INFO: ===========RESULTS===========
+2026-07-21 12:25:11.701 INFO: Loading checkpoint: /home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed142/checkpoints/gb_al_round1_run-142_epoch-56.pt
+2026-07-21 12:25:11.736 INFO: Loaded Stage one model from epoch 56 for evaluation
+2026-07-21 12:25:11.737 INFO: Saving model to /home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed142/checkpoints/gb_al_round1_run-142.model
+2026-07-21 12:25:12.484 INFO: Compiling model, saving metadata to /home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed142/gb_al_round1_compiled.model
+2026-07-21 12:25:13.686 INFO: Computing metrics for training, validation, and test sets
+2026-07-21 12:25:13.687 INFO: Skipping evaluation for heads: ['pt_head']
+2026-07-21 12:25:13.687 INFO: Evaluating train_Default ...
+2026-07-21 12:25:21.609 INFO: Evaluating valid_Default ...
+2026-07-21 12:25:22.264 INFO: Error-table on TRAIN and VALID:
++---------------+---------------------+------------------+-------------------+
+|  config_type  | RMSE E / meV / atom | RMSE F / meV / A | relative F RMSE % |
++---------------+---------------------+------------------+-------------------+
+| train_Default |        32300.2      |         18.3     |          1.82     |
+| valid_Default |            5.9      |         20.7     |          1.37     |
++---------------+---------------------+------------------+-------------------+
+2026-07-21 12:25:22.265 DEBUG: Running inference on train_Default dataset
+2026-07-21 12:25:30.310 DEBUG: Running inference on valid_Default dataset
+2026-07-21 12:25:33.019 INFO: Done
