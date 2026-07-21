@@ -1,0 +1,13 @@
+# configs/relabel_al_gb_config.yaml
+# Settings for GFN2-xTB labeling of high-uncertainty GB dimers
+# selected via committee active learning (Step 6e).
+
+input_xyz: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/selected_for_xtb/all_top20pct_combined.xyz"
+
+output_labeled_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/gb_al_round1_labeled.xyz"
+
+failed_log_file: "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/gb_al_round1_labeling_failures.csv"
+
+xtb_method: "GFN2-xTB"
+charge: 0
+multiplicity: 1

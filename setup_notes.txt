@@ -331,3 +331,21 @@ This means you can likely define a single, global force-uncertainty threshold (e
 
 This is genuinely a nice, well-supported finding for your write-up: "committee force disagreement, not energy disagreement, robustly separates real GB structures from training-like dimers across all tested misorientations."
 
+- step 6b: labeling high uncertain data
+- using `config/xTB_selection_config.yaml` and scripts/select_high_uncertainity_dimers.py --> using this selected top 20% highly uncertain structures based on std_forces from all systems --> this gives 400 dimer structures as well as str. saved in individual files. all this is saved in /data/gb_dimers/selected_for_xtb
+
+- step6c: Running xTB calculations on these labeled 400 structures and calculating forces and energies
+- use the config file `config/relabel_al_gb_config.yaml` and wrapper script `src/labeler.py` and runner script `scripts/relabel_al_gb_xtbrun.py` --> run this script. This will do xTB calculations on the 400 high uncertain structures.
+
+- step6d: retraining the model with these labeled high uncertain structures and comparing against the original 45 dimers valid.xyz
+- now combining train.xyz from original set and gb_al_round1_labeled.xyz dataset --> /data/labeled_data/gb_seed_al_round1.xyz
+- then split this into train and valid keeping 15% as valid -- using scripts/split_dataset.xyz --> saved as `gb_al_round1_train.xyz` and `gb_al_round1_valid.xyz`
+- original train.xyz =259 str.
+gb_al_round1_dataset.xyz = 400str
+combined= 659str
+then split this keeping 15 percent as valid into 
+gb_al_round1_train.xyz=561 str
+gb_al_round1_valid.xyz=98 str.
+
+- retrained the models on this dataset using the last finetuned model. use the following config file: `/configs/al_retrain_config.yaml` and scripts/train_finetune_model.py` --> run the finetune_tcb.sge bash script
+- will be doing this for other three committee run as well

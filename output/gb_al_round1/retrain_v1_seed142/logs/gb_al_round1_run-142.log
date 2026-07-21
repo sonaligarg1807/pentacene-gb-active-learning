@@ -1,0 +1,103 @@
+2026-07-21 12:02:36.898 INFO: ===========VERIFYING SETTINGS===========
+2026-07-21 12:02:36.898 INFO: MACE version: 0.3.16
+2026-07-21 12:02:37.007 INFO: CUDA version: 11.8, CUDA device: 0
+2026-07-21 12:02:37.736 INFO: Using foundation model /home/sgarg/git-repo/pentacene-gb-active-learning/output/models/finetune_v1/pentacene_finetune_v1.model as initial checkpoint.
+2026-07-21 12:02:37.738 INFO: ===========LOADING INPUT DATA===========
+2026-07-21 12:02:37.738 INFO: Using heads: ['Default']
+2026-07-21 12:02:37.738 INFO: Using the key specifications to parse data:
+2026-07-21 12:02:37.738 INFO: Default: KeySpecification(info_keys={'energy': 'REF_energy', 'stress': 'REF_stress', 'virials': 'REF_virials', 'dipole': 'dipole', 'head': 'head', 'elec_temp': 'elec_temp', 'total_charge': 'total_charge', 'polarizability': 'polarizability', 'total_spin': 'total_spin'}, arrays_keys={'forces': 'REF_forces', 'charges': 'REF_charges'})
+2026-07-21 12:02:37.739 INFO: =============    Processing head Default     ===========
+2026-07-21 12:02:38.071 INFO: Training set 1/1 [energy: 213, stress: 0, virials: 0, dipole components: 0, head: 561, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 213, charges: 0]
+2026-07-21 12:02:38.074 INFO: Total Training set [energy: 213, stress: 0, virials: 0, dipole components: 0, head: 561, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 213, charges: 0]
+2026-07-21 12:02:38.110 INFO: Validation set 1/1 [energy: 45, stress: 0, virials: 0, dipole components: 0, head: 45, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 45, charges: 0]
+2026-07-21 12:02:38.110 INFO: Total Validation set [energy: 45, stress: 0, virials: 0, dipole components: 0, head: 45, elec_temp: 0, total_charge: 0, polarizability: 0, total_spin: 0, forces: 45, charges: 0]
+2026-07-21 12:02:38.110 INFO: Total number of configurations: train=561, valid=45, tests=[],
+2026-07-21 12:02:38.116 INFO: Atomic Numbers used: [np.int64(1), np.int64(6)]
+2026-07-21 12:02:38.117 INFO: Isolated Atomic Energies (E0s) not in training file, using command line argument
+2026-07-21 12:02:38.117 INFO: Computing average Atomic Energies using least squares regression
+2026-07-21 12:02:38.119 ERROR: Failed to compute E0s using least squares regression, using the same for all atoms
+2026-07-21 12:02:38.119 INFO: Atomic Energies used (z: eV) for head Default: {1: 0.0, 6: 0.0}
+2026-07-21 12:02:38.119 INFO: Processing datasets for head 'Default'
+2026-07-21 12:06:41.811 INFO: Combining 1 list datasets for head 'Default'
+2026-07-21 12:06:41.870 INFO: Combining 1 list datasets for head 'Default_valid'
+2026-07-21 12:06:41.871 INFO: Combined validation datasets for Default
+2026-07-21 12:06:41.871 INFO: Head 'Default' training dataset size: 561
+2026-07-21 12:06:41.872 INFO: Computing average number of neighbors
+2026-07-21 12:06:42.284 INFO: Average number of neighbors: 22.766765594482422
+2026-07-21 12:06:42.284 INFO: During training the following quantities will be reported: energy, forces
+2026-07-21 12:06:42.284 INFO: ===========MODEL DETAILS===========
+2026-07-21 12:06:42.691 INFO: Loading FOUNDATION model
+2026-07-21 12:06:42.710 INFO: Using filtered elements: [np.int64(1), np.int64(6)]
+2026-07-21 12:06:42.710 INFO: Model configuration extracted from foundation model
+2026-07-21 12:06:42.710 INFO: Using weighted loss function for fine-tuning
+2026-07-21 12:06:42.710 INFO: Message passing with hidden irreps 128x0e+128x1o)
+2026-07-21 12:06:42.710 INFO: 2 layers, each with correlation order: 3 (body order: 4) and spherical harmonics up to: l=3
+2026-07-21 12:06:42.710 INFO: Radial cutoff: 5.0 A (total receptive field for each atom: 10.0 A)
+2026-07-21 12:06:42.710 INFO: Distance transform for radial basis functions: None
+2026-07-21 12:06:44.218 INFO: ===========OPTIMIZER INFORMATION===========
+2026-07-21 12:06:44.218 INFO: Using ADAM as parameter optimizer
+2026-07-21 12:06:44.218 INFO: Batch size: 8
+2026-07-21 12:06:44.218 INFO: Number of gradient updates: 4207
+2026-07-21 12:06:44.218 INFO: Learning rate: 0.0002, weight decay: 5e-07
+2026-07-21 12:06:44.218 INFO: WeightedEnergyForcesLoss(energy_weight=1.000, forces_weight=100.000)
+2026-07-21 12:06:44.219 INFO: === Layer's learning rates ===
+2026-07-21 12:06:44.219 INFO: Param group 0: lr = 0.0002
+2026-07-21 12:06:44.219 INFO: Param group 1: lr = 0.0002
+2026-07-21 12:06:44.219 INFO: Param group 2: lr = 0.0002
+2026-07-21 12:06:44.219 INFO: Param group 3: lr = 0.0002
+2026-07-21 12:06:44.219 INFO: Param group 4: lr = 0.0002
+2026-07-21 12:06:44.220 INFO: Using gradient clipping with tolerance=10.000
+2026-07-21 12:06:44.220 INFO: 
+2026-07-21 12:06:44.220 INFO: ===========TRAINING===========
+2026-07-21 12:06:44.220 INFO: Started training, reporting errors on validation set
+2026-07-21 12:06:44.220 INFO: Loss metrics on validation set
+2026-07-21 12:06:53.390 INFO: Initial: head: Default, loss=0.00644860, RMSE_E_per_atom=    3.88 meV, RMSE_F=   24.89 meV / A
+2026-07-21 12:07:24.204 INFO: Epoch 0: head: Default, loss=0.00656940, RMSE_E_per_atom=    5.96 meV, RMSE_F=   25.07 meV / A
+2026-07-21 12:07:42.583 INFO: Epoch 1: head: Default, loss=0.00676008, RMSE_E_per_atom=   11.07 meV, RMSE_F=   25.40 meV / A
+2026-07-21 12:08:00.495 INFO: Epoch 2: head: Default, loss=0.00759766, RMSE_E_per_atom=    8.97 meV, RMSE_F=   26.81 meV / A
+2026-07-21 12:08:18.386 INFO: Epoch 3: head: Default, loss=0.00690524, RMSE_E_per_atom=    6.62 meV, RMSE_F=   25.71 meV / A
+2026-07-21 12:08:36.323 INFO: Epoch 4: head: Default, loss=0.00636951, RMSE_E_per_atom=    9.28 meV, RMSE_F=   24.73 meV / A
+2026-07-21 12:08:54.827 INFO: Epoch 5: head: Default, loss=0.00708839, RMSE_E_per_atom=    8.80 meV, RMSE_F=   26.06 meV / A
+2026-07-21 12:09:12.917 INFO: Epoch 6: head: Default, loss=0.00633420, RMSE_E_per_atom=    7.50 meV, RMSE_F=   24.63 meV / A
+2026-07-21 12:09:31.383 INFO: Epoch 7: head: Default, loss=0.00695500, RMSE_E_per_atom=    7.40 meV, RMSE_F=   25.88 meV / A
+2026-07-21 12:09:49.372 INFO: Epoch 8: head: Default, loss=0.00625001, RMSE_E_per_atom=    8.18 meV, RMSE_F=   24.46 meV / A
+2026-07-21 12:10:08.015 INFO: Epoch 9: head: Default, loss=0.00668907, RMSE_E_per_atom=    4.09 meV, RMSE_F=   25.34 meV / A
+2026-07-21 12:10:26.008 INFO: Epoch 10: head: Default, loss=0.00619990, RMSE_E_per_atom=    4.86 meV, RMSE_F=   24.33 meV / A
+2026-07-21 12:10:44.509 INFO: Epoch 11: head: Default, loss=0.00675860, RMSE_E_per_atom=    4.63 meV, RMSE_F=   25.55 meV / A
+2026-07-21 12:11:02.449 INFO: Epoch 12: head: Default, loss=0.00596995, RMSE_E_per_atom=    5.49 meV, RMSE_F=   23.94 meV / A
+2026-07-21 12:11:21.062 INFO: Epoch 13: head: Default, loss=0.00611936, RMSE_E_per_atom=    5.22 meV, RMSE_F=   24.26 meV / A
+2026-07-21 12:11:39.107 INFO: Epoch 14: head: Default, loss=0.00581296, RMSE_E_per_atom=    5.72 meV, RMSE_F=   23.62 meV / A
+2026-07-21 12:11:57.896 INFO: Epoch 15: head: Default, loss=0.00582844, RMSE_E_per_atom=    7.81 meV, RMSE_F=   23.60 meV / A
+2026-07-21 12:12:15.954 INFO: Epoch 16: head: Default, loss=0.00610942, RMSE_E_per_atom=    6.99 meV, RMSE_F=   24.21 meV / A
+2026-07-21 12:12:33.943 INFO: Epoch 17: head: Default, loss=0.00670854, RMSE_E_per_atom=    6.33 meV, RMSE_F=   25.20 meV / A
+2026-07-21 12:12:51.971 INFO: Epoch 18: head: Default, loss=0.00620058, RMSE_E_per_atom=    2.84 meV, RMSE_F=   24.38 meV / A
+2026-07-21 12:13:09.985 INFO: Epoch 19: head: Default, loss=0.00634884, RMSE_E_per_atom=   10.00 meV, RMSE_F=   24.56 meV / A
+2026-07-21 12:13:27.963 INFO: Epoch 20: head: Default, loss=0.00712298, RMSE_E_per_atom=   12.45 meV, RMSE_F=   25.86 meV / A
+2026-07-21 12:13:45.967 INFO: Epoch 21: head: Default, loss=0.00639666, RMSE_E_per_atom=    7.10 meV, RMSE_F=   24.61 meV / A
+2026-07-21 12:14:03.816 INFO: Epoch 22: head: Default, loss=0.00579557, RMSE_E_per_atom=    3.82 meV, RMSE_F=   23.66 meV / A
+2026-07-21 12:14:22.634 INFO: Epoch 23: head: Default, loss=0.00647617, RMSE_E_per_atom=    6.70 meV, RMSE_F=   24.75 meV / A
+2026-07-21 12:14:40.550 INFO: Epoch 24: head: Default, loss=0.00586049, RMSE_E_per_atom=    4.66 meV, RMSE_F=   23.63 meV / A
+2026-07-21 12:14:58.528 INFO: Epoch 25: head: Default, loss=0.00610326, RMSE_E_per_atom=    4.47 meV, RMSE_F=   24.26 meV / A
+2026-07-21 12:15:16.461 INFO: Epoch 26: head: Default, loss=0.00557096, RMSE_E_per_atom=    4.68 meV, RMSE_F=   23.15 meV / A
+2026-07-21 12:15:35.067 INFO: Epoch 27: head: Default, loss=0.00532699, RMSE_E_per_atom=    7.49 meV, RMSE_F=   22.60 meV / A
+2026-07-21 12:15:53.513 INFO: Epoch 28: head: Default, loss=0.00508787, RMSE_E_per_atom=    2.98 meV, RMSE_F=   22.07 meV / A
+2026-07-21 12:16:11.945 INFO: Epoch 29: head: Default, loss=0.00512368, RMSE_E_per_atom=    1.06 meV, RMSE_F=   22.17 meV / A
+2026-07-21 12:16:29.856 INFO: Epoch 30: head: Default, loss=0.00586861, RMSE_E_per_atom=    6.70 meV, RMSE_F=   23.58 meV / A
+2026-07-21 12:16:47.836 INFO: Epoch 31: head: Default, loss=0.00713485, RMSE_E_per_atom=    5.45 meV, RMSE_F=   25.91 meV / A
+2026-07-21 12:17:05.628 INFO: Epoch 32: head: Default, loss=0.00522722, RMSE_E_per_atom=    5.10 meV, RMSE_F=   22.43 meV / A
+2026-07-21 12:17:23.495 INFO: Epoch 33: head: Default, loss=0.00537227, RMSE_E_per_atom=    8.11 meV, RMSE_F=   22.65 meV / A
+2026-07-21 12:17:41.391 INFO: Epoch 34: head: Default, loss=0.00522710, RMSE_E_per_atom=    4.68 meV, RMSE_F=   22.31 meV / A
+2026-07-21 12:17:59.300 INFO: Epoch 35: head: Default, loss=0.00548132, RMSE_E_per_atom=    7.88 meV, RMSE_F=   22.88 meV / A
+2026-07-21 12:18:17.189 INFO: Epoch 36: head: Default, loss=0.00531895, RMSE_E_per_atom=    3.74 meV, RMSE_F=   22.58 meV / A
+2026-07-21 12:18:35.095 INFO: Epoch 37: head: Default, loss=0.00533959, RMSE_E_per_atom=    5.84 meV, RMSE_F=   22.60 meV / A
+2026-07-21 12:18:53.047 INFO: Epoch 38: head: Default, loss=0.00510075, RMSE_E_per_atom=    6.32 meV, RMSE_F=   22.05 meV / A
+2026-07-21 12:19:10.932 INFO: Epoch 39: head: Default, loss=0.00482731, RMSE_E_per_atom=    2.08 meV, RMSE_F=   21.47 meV / A
+2026-07-21 12:19:29.414 INFO: Epoch 40: head: Default, loss=0.00500280, RMSE_E_per_atom=    3.86 meV, RMSE_F=   21.96 meV / A
+2026-07-21 12:19:47.210 INFO: Epoch 41: head: Default, loss=0.00532740, RMSE_E_per_atom=    1.59 meV, RMSE_F=   22.50 meV / A
+2026-07-21 12:20:05.080 INFO: Epoch 42: head: Default, loss=0.00478839, RMSE_E_per_atom=    2.23 meV, RMSE_F=   21.41 meV / A
+2026-07-21 12:20:23.841 INFO: Epoch 43: head: Default, loss=0.00486682, RMSE_E_per_atom=    3.33 meV, RMSE_F=   21.53 meV / A
+2026-07-21 12:20:41.700 INFO: Epoch 44: head: Default, loss=0.00530349, RMSE_E_per_atom=    4.70 meV, RMSE_F=   22.40 meV / A
+2026-07-21 12:20:59.652 INFO: Epoch 45: head: Default, loss=0.00469350, RMSE_E_per_atom=    5.88 meV, RMSE_F=   21.21 meV / A
+2026-07-21 12:21:18.012 INFO: Epoch 46: head: Default, loss=0.00498916, RMSE_E_per_atom=    6.02 meV, RMSE_F=   21.83 meV / A
+2026-07-21 12:21:35.987 INFO: Epoch 47: head: Default, loss=0.00473737, RMSE_E_per_atom=    5.06 meV, RMSE_F=   21.33 meV / A
+2026-07-21 12:21:53.953 INFO: Epoch 48: head: Default, loss=0.00588035, RMSE_E_per_atom=    3.89 meV, RMSE_F=   23.67 meV / A

@@ -1,0 +1,8 @@
+#!/bin/bash
+# Hostname: gtx08
+# Job ID: 290717
+# QUEUE: gtx08a
+# GPU ID: 0
+# Workdir: /scratch/sgarg/MACE_290717
+# SSH command:
+ssh -t gtx08 'cd /scratch/sgarg/MACE_290717 ; bash'

@@ -25,7 +25,7 @@ from datetime import datetime
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-CONFIG_PATH = REPO_ROOT / "configs" / "mace_finetune_config.yaml"
+CONFIG_PATH = REPO_ROOT / "configs" / "al_retrain_config.yaml"
 
 
 def main():

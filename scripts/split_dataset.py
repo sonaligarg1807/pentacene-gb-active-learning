@@ -18,9 +18,9 @@ HOW TO RUN:
 import random
 from ase.io import read, write
 
-INPUT_FILE = "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/seed_dataset_labeled.xyz"
-TRAIN_FILE = "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz"
-VALID_FILE = "/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz"
+INPUT_FILE = "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/gb_seed_al_round1.xyz"
+TRAIN_FILE = "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/gb_al_round1_train.xyz"
+VALID_FILE = "/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/gb_al_round1_valid.xyz"
 
 VALID_FRACTION = 0.15   # 15% held out for validation
 RANDOM_SEED = 42
