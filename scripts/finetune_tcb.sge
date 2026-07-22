@@ -1,7 +1,7 @@
 #!/bin/bash
 #$ -cwd
 #$ -l qu=gtx
-#$ -N retrain_v1
+#$ -N committee_r1
 
 set -euo pipefail
 
@@ -85,10 +85,10 @@ ulimit -s unlimited
 start=$(date "+%s")
 
 #to run model training script
-time python /home/sgarg/git-repo/pentacene-gb-active-learning/scripts/train_finetune_model.py 2>err.out 1>output.dat
+# time python /home/sgarg/git-repo/pentacene-gb-active-learning/scripts/train_finetune_model.py 2>err.out 1>output.dat
 
 # to run committee_run
-# time python /home/sgarg/git-repo/pentacene-gb-active-learning/scripts/run_committee_on_xyz.py /home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/nbc75_gb_dimers_subset500.xyz /home/sgarg/git-repo/pentacene-gb-active-learning/output/committee_v1/nbc75_gb_subset500_stats.json 2>err.out 1>output.dat
+time python /home/sgarg/git-repo/pentacene-gb-active-learning/scripts/run_committee_on_xyz.py /home/sgarg/git-repo/pentacene-gb-active-learning/data/gb_dimers/a90_gb_dimers_subset500.xyz /home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_committee_v1/a90_gb_subset500_stats_r1.json 2>err.out 1>output.dat
 
 end=$(date "+%s")
 duration=$((end - start))

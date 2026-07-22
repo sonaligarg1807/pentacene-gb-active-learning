@@ -4,7 +4,7 @@ import numpy as np
 from mace.calculators import MACECalculator  # same as you used for eval
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-CONFIG_PATH = REPO_ROOT / "configs" / "committee_config.yaml"
+CONFIG_PATH = REPO_ROOT / "configs" / "retrain_committee_config.yaml"
 
 
 class MACECommittee:

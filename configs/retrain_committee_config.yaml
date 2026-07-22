@@ -1,0 +1,13 @@
+name: "gb_al_committee_v1"
+
+device: "cuda"  # or "cpu" if you want to run on CPU
+
+models:
+  - type: "retrain_seed142"
+    path: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed142/gb_al_round1.model"
+  - type: "retrain_seed299"
+    path: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed299/gb_al_round1.model"
+  - type: "retrain_seed523"
+    path: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_round1/retrain_v1_seed523/gb_al_round1.model"
+
+output_dir: "/home/sgarg/git-repo/pentacene-gb-active-learning/output/gb_al_committee_v1"

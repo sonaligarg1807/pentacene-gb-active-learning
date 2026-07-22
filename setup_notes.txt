@@ -349,3 +349,17 @@ gb_al_round1_valid.xyz=98 str.
 
 - retrained the models on this dataset using the last finetuned model. use the following config file: `/configs/al_retrain_config.yaml` and scripts/train_finetune_model.py` --> run the finetune_tcb.sge bash script
 - will be doing this for other three committee run as well
+- seed used = 142, 299, 523--> all retraining completed and results are saved in output/gb_al_round1/results --> TIME taken for each retraining ~27 minutes
+
+- step 6g: rerunning committee on these retrained models
+- configs/retrain_committee_config.yaml
+- change config file path in wrapper/committee.py
+- using scripts/run_committee_on_xyz.py
+- ran using finetune_tcb.sge script on each of GB system with 500subset and valid.xyz
+- saving the results in : output/gb_al_committee_v1
+- this time using only 3 models and no scratch model
+
+- then in notebooks/analysis --> done violin plots and scatter plots comparison
+- also did MACE vs xTB parity plots comparison
+
+- now Found a Bug, some there was a mismatch of labels in the training data. so correct that and then may have to repeat this. mismatch between `energy` and `REF_energy` keys and same for forces. also check the log files if the output seems to be correct
