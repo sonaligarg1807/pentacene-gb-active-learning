@@ -1,9 +1,9 @@
 round,metric,value
-round0,energy_per_atom_rmse,0.006252502267975503
-round0,energy_per_atom_mae,0.006166692249668322
-round0,force_rmse,0.02138763959113161
-round0,force_mae,0.012928402951478483
-round1,energy_per_atom_rmse,0.003555198928470382
-round1,energy_per_atom_mae,0.003441978692275983
-round1,force_rmse,0.019311953356789705
-round1,force_mae,0.011337722001485615
+round0,energy_per_atom_rmse,0.005076984752024694
+round0,energy_per_atom_mae,0.004744266856118173
+round0,force_rmse,0.034550345773670686
+round0,force_mae,0.02138180931003236
+round1,energy_per_atom_rmse,0.001638640060428366
+round1,energy_per_atom_mae,0.0014854831451511423
+round1,force_rmse,0.0201674139036416
+round1,force_mae,0.010570299297599457

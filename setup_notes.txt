@@ -362,4 +362,8 @@ gb_al_round1_valid.xyz=98 str.
 - then in notebooks/analysis --> done violin plots and scatter plots comparison
 - also did MACE vs xTB parity plots comparison
 
-- now Found a Bug, some there was a mismatch of labels in the training data. so correct that and then may have to repeat this. mismatch between `energy` and `REF_energy` keys and same for forces. also check the log files if the output seems to be correct
+- now Found a Bug, some there was a mismatch of labels in the training data. so correct that and then may have to repeat this. mismatch between `energy` and `REF_energy` keys and same for forces. also check the log files if the output seems to be correct.
+- now renamed the keys in `gb_al_round1_labeled.xyz` dataset using `scripts/rename_keys.py`
+- then again merged the xyz files: `gb_al_round1_labeled.xyz+train.xyz` --> using notebook code
+- split the dataset using the same random seed into `gb_al_round1_train.xyz` and `gb_al_round1_valid.xyz`
+- now using `gb_al_round1_train.xyz` would retrain the models against original valid.xyz

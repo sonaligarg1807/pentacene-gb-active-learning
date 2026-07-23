@@ -41,8 +41,8 @@ def rename_keys(filepath):
 
 
 def main():
-    rename_keys("/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/train.xyz")
-    rename_keys("/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz")
+    rename_keys("/home/sgarg/git-repo/pentacene-gb-active-learning/data/labeled_data/gb_al_round1_labeled.xyz")
+    # rename_keys("/Users/sonaligarg/Desktop/Phd_data/git-repo/pentacene-gb-active-learning/data/labeled_data/valid.xyz")
 
 
 if __name__ == "__main__":
