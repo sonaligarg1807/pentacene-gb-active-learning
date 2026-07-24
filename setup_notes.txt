@@ -367,3 +367,13 @@ gb_al_round1_valid.xyz=98 str.
 - then again merged the xyz files: `gb_al_round1_labeled.xyz+train.xyz` --> using notebook code
 - split the dataset using the same random seed into `gb_al_round1_train.xyz` and `gb_al_round1_valid.xyz`
 - now using `gb_al_round1_train.xyz` would retrain the models against original valid.xyz
+- after retraining the models, did committee run and then did the analysis
+- analysis results:
+| Metric         | Round 0  | Round 1 (corrected) | Improvement |
+| -------------- | -------- | ------------------- | ----------- |
+| RMSE (eV/atom) | 0.005077 | 0.001639            | ~68% lower  |
+| MAE (eV/atom)  | 0.004744 | 0.001485            | ~69% lower  |
+
+also the uncertainity decreases from round0 to round1 of active learning
+
+step7: running committee on unseen 16 gb systems and calculating the similar uncertaininty.
